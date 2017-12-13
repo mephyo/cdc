@@ -1,5 +1,6 @@
 <template>
   <div class="overtune">
+    <div class="logo main-logo"></div>
     <h1>Camera del Cavallo</h1>
     <ul class="gallery-list">
       <li v-for="project in gallery" :key="project.codeName">
