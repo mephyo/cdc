@@ -8,8 +8,7 @@ import SinglePhoto from '@/components/SinglePhoto'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'Overtune',
       component: Overtune
@@ -24,5 +23,11 @@ export default new Router({
       name: 'SinglePhoto',
       component: SinglePhoto
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })

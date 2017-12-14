@@ -4,7 +4,7 @@
     <ul>
       <li v-for="photo in gallery.photos" :key="photo.codeName">
         <a @click="goPhoto(photo.codeName)">
-          <img class="photo" :src="photo.src">
+          <img class="photo" v-lazy="photo.src">
         </a>
       </li>
     </ul>

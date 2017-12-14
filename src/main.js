@@ -5,9 +5,19 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import VueLazyload from 'vue-lazyload'
+
 import './style/main.less'
 
 Vue.config.productionTip = false
+
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'dist/images/img-error.png',
+  loading: 'dist/images/img-loading.png',
+  attempt: 2,
+  listenEvents: ['scroll']
+})
 
 /* eslint-disable no-new */
 new Vue({
@@ -15,5 +25,7 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: {
+    App
+  }
 })
