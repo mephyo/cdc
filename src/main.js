@@ -13,8 +13,6 @@ Vue.config.productionTip = false
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: 'dist/images/img-error.png',
-  loading: 'dist/images/img-loading.png',
   attempt: 2,
   listenEvents: ['scroll']
 })
