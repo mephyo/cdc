@@ -1,7 +1,7 @@
 export default [{
     name: 'Lemon',
     codeName: 'lemon',
-    cover: 0,
+    cover: [0, 5, 6],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lemon/1.jpg',
       codeName: 'lemon-1'
@@ -30,7 +30,7 @@ export default [{
   }, {
     name: 'Elapse',
     codeName: 'elapse',
-    cover: 1,
+    cover: [1, 2, 4],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/elapse/1.jpg',
       codeName: 'elapse-1'
@@ -69,7 +69,7 @@ export default [{
   {
     name: 'Irene',
     codeName: 'irene',
-    cover: 1,
+    cover: [1, 9, 13],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/irene/1.jpg',
       codeName: 'irene-1'
@@ -140,7 +140,7 @@ export default [{
   }, {
     name: 'Lemon',
     codeName: 'afternoon',
-    cover: 30,
+    cover: [4, 13, 30],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/afternoon/1.jpg',
       codeName: 'november-1'
@@ -271,7 +271,7 @@ export default [{
   }, {
     name: 'Lemon',
     codeName: 'lemoninspring',
-    cover: 0,
+    cover: [0, 2, 3],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lemoninspring/1.jpg',
       codeName: 'spring-1'
@@ -297,7 +297,7 @@ export default [{
   }, {
     name: 'Lemon',
     codeName: 'lemoninsummer',
-    cover: 0,
+    cover: [0, 3, 6],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lemoninsummer/1.jpg',
       codeName: 'summer-1'
@@ -323,7 +323,7 @@ export default [{
   }, {
     name: 'Lisa',
     codeName: 'lisa',
-    cover: 0,
+    cover: [0, 12, 13],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lisa/1.jpg',
       codeName: 'lisa-1'
@@ -406,7 +406,7 @@ export default [{
   }, {
     name: 'Lisa',
     codeName: 'lisaundressed',
-    cover: 6,
+    cover: [1, 3, 6],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lisaundressed/1.jpg',
       codeName: 'night-1'

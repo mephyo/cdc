@@ -2,7 +2,7 @@ export default [
     {
         name: "Lemon",
         codeName: "lemon",
-        cover: 0,
+        cover: [0, 1, 2],
         photos: [
             {
                 src:
@@ -35,7 +35,7 @@ export default [
     {
         name: "Gaz",
         codeName: "gaz",
-        cover: 0,
+        cover: [0, 1, 2],
         photos: [
             {
                 src:

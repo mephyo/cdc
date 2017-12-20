@@ -1,99 +1,89 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(50, 50, 50);
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 1em;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: rgb(240, 240, 240);
-}
-
-h1,
-h2,
-h3 {
-  font-family: "IBM Plex Serif", serif;
-  font-size: 0.875em;
-  font-weight: 400;
-  color: rgb(225, 225, 225);
-}
-
-h1 {
-  margin: 8px;
-  text-align: center;
-}
-
-p {
-  font-size: 0.875em;
-  font-weight: 400;
-  color: rgb(200, 200, 200);
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  color: #64cdee;
-  text-decoration: none;
-  font-size: 0.875em;
-  cursor: pointer;
-}
-
-.navigator {
-  position: fixed;
-  height: 28px;
-  width: 100vw;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  background-color: rgba(50,50,50,0.5);
-  .navs {
-    display: flex;
-    justify-content: flex-start;
-    height: 24px;
-    max-width: 50%;
-    overflow: hidden;
-    margin: 2px;
-    cursor: pointer;
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(50, 50, 50);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: rgb(240, 240, 240);
   }
-  .tools {
-    display: flex;
-    justify-content: space-around;
-    height: 24px;
-    width: 50%;
-    margin: 2px;
-  }
-  .icon {
-    cursor: pointer;
-  }
-  .disabled {
-    opacity: 0.125;
-    cursor: not-allowed;
-  }
-  .gallery-name {
-    height: 24px;
-    line-height: 24px;
+
+  h1,
+  h2,
+  h3 {
+    font-family: "IBM Plex Serif", serif;
     font-size: 0.875em;
-    font-weight: 600;
+    font-weight: 400;
+    color: rgb(225, 225, 225);
   }
-}
 
-.gallery-list {
-  li {
-    .overtune-card {
+  h1 {
+    margin: 8px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.875em;
+    font-weight: 400;
+    color: rgb(200, 200, 200);
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: #64cdee;
+    text-decoration: none;
+    font-size: 0.875em;
+    cursor: pointer;
+  }
+
+  .navigator {
+    position: fixed;
+    height: 28px;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(50, 50, 50, 0.5);
+    .navs {
+      display: flex;
+      justify-content: flex-start;
+      height: 24px;
+      max-width: 50%;
+      overflow: hidden;
+      margin: 2px;
+      cursor: pointer;
+    }
+    .tools {
+      display: flex;
+      justify-content: space-around;
+      height: 24px;
+      width: 50%;
+      margin: 2px;
+    }
+    .icon {
+      cursor: pointer;
+    }
+    .disabled {
+      opacity: 0.125;
+      cursor: not-allowed;
+    }
+    .gallery-name {
+      height: 24px;
+      line-height: 24px;
+      font-size: 0.875em;
+      font-weight: 600;
+    }
+  }
+
+  .gallery-list {
+    li {
       margin: 8px;
-      .cover {
-        width: 100%;
-        height: 100px;
-        object-fit: cover;
-        display: block;
-        outline: 1px solid rgb(250, 250, 250);
-        outline-offset: -0.5px;
-        box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
-      }
       .title {
         color: rgb(240, 240, 240);
         text-align: center;
@@ -102,79 +92,105 @@ a {
       }
     }
   }
-}
 
-.photo {
-  max-width: 100%;
-  display: block;
-  outline: 1px solid rgb(250, 250, 250);
-  outline-offset: -0.5px;
-}
-
-.single-photo {
-  text-align: center;
-  margin:  8px 4px 32px 4px;
   .photo {
-    max-height: 75vh;
+    max-width: 100%;
     display: block;
-    margin: 0 auto;
-    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+    outline: 1px solid rgb(250, 250, 250);
+    outline-offset: -0.5px;
   }
-  p {
-    margin: 8px 0;
-  }
-}
 
-.single-gallery {
-  text-align: center;
-  margin:  8px 4px 32px 4px;
-  .photo {
-    display: block;
+  .single-photo {
+    text-align: center;
+    margin: 8px 4px 32px 4px;
+    .photo {
+      max-height: 75vh;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+    }
+    p {
+      margin: 8px 0;
+    }
+  }
+
+  .single-gallery {
+    text-align: center;
+    margin: 8px 4px 32px 4px;
+    .photo {
+      display: block;
+      margin: 8px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    p {
+      margin: 8px 0;
+    }
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    background-position: center center;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+  }
+
+  .icon_back {
+    background-image: url(../assets/images/ic_arrow_back_white_24px.svg);
+  }
+
+  .icon_forward {
+    background-image: url(../assets/images/ic_arrow_forward_white_24px.svg);
+  }
+
+  .icon_left {
+    background-image: url(../assets/images/ic_keyboard_arrow_left_white_24px.svg);
+  }
+
+  .icon_grid {
+    background-image: url(../assets/images/view-grid.svg);
+  }
+
+  .logo {
+    background-image: url(../assets/images/logo.svg);
+    width: 24px;
+    height: 24px;
+    background-position: 1px 1px;
+    background-size: 21px 21px;
+    background-repeat: no-repeat;
+  }
+
+  .main-logo {
+    background-size: 42px 42px;
+    background-position: center center;
+    width: 44px;
+    height: 44px;
+    margin: 8px auto 0 auto;
+  }
+
+  .stack {
+    position: relative;
+    height: 200px;
+    width: 200px;
     margin: 8px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    .able,
+    .bravo,
+    .charlie {
+      display: block;
+      outline: 2px solid rgb(250, 250, 250);
+      outline-offset: -1px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+      height: 160px;
+      width: 160px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      object-fit: cover;
+    }
+    .charlie {
+      transform: rotate(12deg) translateZ(0);
+    }
+    .bravo {
+      transform: rotate(-6deg) translateZ(0);
+    }
   }
-  p {
-    margin: 8px 0;
-  }
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-  background-position: center center;
-  background-size: 24px 24px;
-  background-repeat: no-repeat;
-}
-
-.icon_back {
-  background-image: url(../assets/images/ic_arrow_back_white_24px.svg);
-}
-
-.icon_forward {
-  background-image: url(../assets/images/ic_arrow_forward_white_24px.svg);
-}
-
-.icon_left {
-  background-image: url(../assets/images/ic_keyboard_arrow_left_white_24px.svg);
-}
-
-.icon_grid {
-  background-image: url(../assets/images/view-grid.svg);
-}
-
-.logo {
-  background-image: url(../assets/images/logo.svg);
-  width: 24px;
-  height: 24px;
-  background-position: 1px 1px;
-  background-size: 21px 21px;
-  background-repeat: no-repeat;
-}
-
-.main-logo {
-  background-size: 42px 42px;
-  background-position: center center;
-  width: 44px;
-  height: 44px;
-  margin: 8px auto 0 auto;
-}
