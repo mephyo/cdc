@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import Gallery from '../Gallery'
-import Gallery from '../FakeGallery'
+import Gallery from '../Gallery'
+// import Gallery from '../FakeGallery'
 
 Vue.use(Vuex)
 
