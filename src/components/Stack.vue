@@ -1,8 +1,8 @@
 <template>
   <div class="stack">
-    <img class="charlie" v-lazy="gallery[2]">
-    <img class="bravo" v-lazy="gallery[1]">
-    <img class="able" v-lazy="gallery[0]">
+    <img class="charlie" :img="gallery[2]">
+    <img class="bravo" :img="gallery[1]">
+    <img class="able" :img="gallery[0]">
   </div>
 </template>
 
