@@ -1,20 +1,17 @@
 <template>
-  <nav class="navigator" v-if="this.status!==0">
-    <div class="navs" @click="goBack">
-      <div class="icon icon_left"></div>
-      <div class="logo" v-if="this.status===1"></div>
-      <div class="gallery-name" v-if="this.status===2">{{this.galleryName}}</div>
-    </div>
-    <div class="tools" v-if="this.status===2">
-      <div class="icon icon_back" @click="goPrevious" :class="{disabled : !havePrevious}"></div>
-      <div class="icon icon_forward" @click="goNext" :class="{disabled : !haveNext}"></div>
-    </div>
+  <nav class="hall">
+      <div class="glass"></div>
+      <div class="marble">
+          <ul class="navigator_main">
+              <li class="navigator_item"></li>
+          </ul>
+      </div>
   </nav>
 </template>
 
 <script>
   export default {
-    name: "Navigator",
+    name: "MarbleHall",
     props: {
       gallery: Object
     },
