@@ -6,32 +6,34 @@
 </template>
 
 <script>
-import Navigator from "@/components/Navigator";
+  import Navigator from "@/components/Navigator";
 
-export default {
-  name: "app",
-  components: {
-    Navigator
-  },
-  methods: {
-    indexing() {
-      const galleryId = this.$route.params.galleryId;
-      const photoId = this.$route.params.photoId;
-      if (galleryId) {
-        this.$store.commit("changeGallery", galleryId);
+  export default {
+    name: "app",
+    components: {
+      Navigator
+    },
+    methods: {
+      indexing() {
+        const galleryId = this.$route.params.galleryId;
+        const photoId = this.$route.params.photoId;
+        if (galleryId) {
+          this.$store.commit("changeGallery", galleryId);
+        }
+        if (photoId) {
+          this.$store.commit("changePhoto", photoId);
+        }
       }
-      if (photoId) {
-        this.$store.commit("changePhoto", photoId);
-      }
-    }
-  },
-  mounted() {
-    this.indexing();
-  },
-  watch: {
-    $route() {
+    },
+    mounted() {
       this.indexing();
+      console.log("Love is wise, hatred is foolish.");
+    },
+    watch: {
+      $route() {
+        this.indexing();
+      }
     }
-  }
-};
+  };
+
 </script>

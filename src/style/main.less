@@ -1,16 +1,17 @@
-  @moon: rgb(50, 55, 50);
-  @europa: rgb(195, 200, 200);
-  @arcturus: rgb(225, 220, 215);
-  @centaur: rgba(50, 50, 45, 0.5);
-  @cygnus: rgba(5, 5, 0, 0.25);
+  @Moon: rgb(55, 50, 45);
+  @Europa: rgb(195, 200, 200);
+  @Arcturus: rgb(225, 220, 215);
+  @Neptune: rgb(75, 115, 240);
+  @Centaur: rgba(50, 50, 45, 0.5);
+  @Cygnus: rgba(5, 5, 0, 0.25);
   body {
     margin: 0;
     padding: 0;
-    background-color: @moon;
-    font-family: 'Seravek', 'Helvetica Neue', 'Helvetica', sans-serif;
+    background-color: @Moon;
+    font-family: 'Seravek', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Source Han Sans', sans-serif;
     font-size: 1em;
     font-weight: 400;
-    color: @europa;
+    color: @Europa;
   }
 
   h1,
@@ -18,7 +19,7 @@
   h3 {
     font-size: 0.875em;
     font-weight: 400;
-    color: @arcturus;
+    color: @Arcturus;
   }
 
   h1 {
@@ -45,41 +46,56 @@
 
   .navigator {
     position: fixed;
-    height: 28px;
     width: 100vw;
+    height: 28px;
     bottom: 0;
     left: 0;
-    display: flex;
-    justify-content: space-between;
-    background-color: @centaur;
-    .navs {
+    background-color: @Centaur;
+    .navigator_content_wrapper {
+      height: inherit;
+      width: inherit;
       display: flex;
-      justify-content: flex-start;
-      height: 24px;
-      max-width: 50%;
-      overflow: hidden;
-      margin: 2px;
-      cursor: pointer;
-    }
-    .tools {
-      display: flex;
-      justify-content: space-around;
-      height: 24px;
-      width: 50%;
-      margin: 2px;
-    }
-    .icon {
-      cursor: pointer;
-    }
-    .disabled {
-      opacity: 0.125;
-      cursor: not-allowed;
-    }
-    .gallery-name {
-      height: 24px;
-      line-height: 24px;
-      font-size: 0.875em;
-      font-weight: 600;
+      justify-content: space-between;
+      .navs {
+        display: flex;
+        justify-content: flex-start;
+        height: 24px;
+        max-width: 50%;
+        overflow: hidden;
+        margin: 2px;
+        cursor: pointer;
+      }
+      .tools {
+        display: flex;
+        justify-content: space-around;
+        height: 24px;
+        width: 50%;
+        margin: 2px;
+        .navigator_button {
+          height: 24px;
+          line-height: 24px;
+          border-radius: 12px;
+          margin: 0 8px;
+          font-size: 0.875em;
+          background-color: @Neptune;
+          padding: 0 4px;
+          cursor: pointer;
+          color: @Arcturus;
+        }
+      }
+      .icon {
+        cursor: pointer;
+      }
+      .disabled {
+        opacity: 0.125;
+        cursor: not-allowed;
+      }
+      .gallery-name {
+        height: 24px;
+        line-height: 24px;
+        font-size: 0.875em;
+        font-weight: 600;
+      }
     }
   }
 
@@ -87,7 +103,7 @@
     li {
       margin: 8px;
       .title {
-        color: @arcturus;
+        color: @Arcturus;
         text-align: center;
         height: 20px;
         line-height: 20px;
@@ -98,7 +114,7 @@
   .photo {
     max-width: 100%;
     display: block;
-    outline: 1px solid @arcturus;
+    outline: 1px solid @Arcturus;
     outline-offset: -0.5px;
   }
 
@@ -115,12 +131,15 @@
     text-align: center;
     margin: 8px 4px 32px 4px;
     position: relative;
-    .photo {
-      margin: 0 auto;
-      box-shadow: 0 32px 64px @centaur;
-    }
-    p {
-      margin: 8px 0;
+    .photo_wrapper {
+      position: relative;
+      .photo {
+        margin: 0 auto;
+        box-shadow: 0 32px 64px @Centaur;
+      }
+      p {
+        margin: 8px 0;
+      }
     }
   }
 
@@ -131,7 +150,7 @@
       position: relative;
       .photo {
         margin: 8px auto;
-        box-shadow: 0 4px 8px @centaur;
+        box-shadow: 0 4px 8px @Centaur;
       }
     }
   }
@@ -183,9 +202,9 @@
     .bravo,
     .charlie {
       display: block;
-      outline: 2px solid @arcturus;
+      outline: 2px solid @Arcturus;
       outline-offset: -1px;
-      box-shadow: 0 4px 8px @cygnus;
+      box-shadow: 0 4px 8px @Cygnus;
       height: 160px;
       width: 160px;
       position: absolute;
@@ -200,18 +219,3 @@
       transform: rotate(-6deg) translateZ(0);
     }
   }
-
-  // .hall {
-  //   position: fixed;
-  //   height: 74px;
-  //   width: 100vw;
-  //   bottom: 0;
-  //   left: 0;
-  //   .glass {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     height: 44px;
-  //     width: inherit;
-  //   }
-  // }

@@ -9,9 +9,9 @@ export default new Vuex.Store({
   state: {
     gallery: Gallery,
     nowGalleryIndex: 0,
-    nowGallery: '',
+    nowGallery: {},
     nowPhotoIndex: 0,
-    nowPhoto: ''
+    nowPhoto: {}
   },
   mutations: {
     changeGallery: function (state, galleryId) {

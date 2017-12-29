@@ -1,13 +1,25 @@
 <template>
-  <nav class="navigator" v-if="this.status!==0">
-    <div class="navs" @click="goBack">
-      <div class="icon icon_left"></div>
-      <div class="logo" v-if="this.status===1"></div>
-      <div class="gallery-name" v-if="this.status===2">{{this.galleryName}}</div>
+  <nav class="navigator" v-if="this.scenes !== 'Overtune'">
+    <div class="navigator_content_wrapper" v-if="this.scenes === 'SingleGallery'||'Apply'">
+      <div class="navs" @click="goHome">
+        <div class="icon icon_left"></div>
+        <div class="logo"></div>
+      </div>
+      <div class="tools">
+        <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'">
+          <div class="navigator_button" v-if="this.theEndIsNear">我也很想拍你哦</div>
+        </a>
+      </div>
     </div>
-    <div class="tools" v-if="this.status===2">
-      <div class="icon icon_back" @click="goPrevious" :class="{disabled : !havePrevious}"></div>
-      <div class="icon icon_forward" @click="goNext" :class="{disabled : !haveNext}"></div>
+    <div class="navigator_content_wrapper" v-if="this.scenes === 'SinglePhoto'">
+      <div class="navs" @click="goGallery">
+        <div class="icon icon_left"></div>
+        <div class="gallery-name">{{this.galleryName}}</div>
+      </div>
+      <div class="tools">
+        <div class="icon icon_back" @click="goPrevious" :class="{disabled : !havePrevious}"></div>
+        <div class="icon icon_forward" @click="goNext" :class="{disabled : !haveNext}"></div>
+      </div>
     </div>
   </nav>
 </template>
@@ -18,22 +30,14 @@
     props: {
       gallery: Object
     },
+    data() {
+      return {
+        theEndIsNear: false
+      }
+    },
     computed: {
-      status() {
-        switch (this.$route.name) {
-          case "Overtune":
-            return 0;
-            break;
-          case "SingleGallery":
-            return 1;
-            break;
-          case "SinglePhoto":
-            return 2;
-            break;
-          default:
-            return 0;
-            break;
-        }
+      scenes() {
+        return this.$route.name
       },
       galleryName() {
         if (this.$store.state.nowGallery) {
@@ -52,6 +56,28 @@
       }
     },
     methods: {
+      handleScroll: function () {
+        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - window.innerHeight / 2)) {
+          this.theEndIsNear = true
+        } else {
+          this.theEndIsNear = false
+        }
+      },
+      // In SingleGallery
+      goHome() {
+        this.$router.push({
+          name: "Overtune"
+        });
+      },
+      // In SinglePhoto
+      goGallery() {
+        this.$router.push({
+          name: "SingleGallery",
+          params: {
+            galleryId: this.$store.state.nowGallery.codeName
+          }
+        });
+      },
       goPrevious() {
         if (!this.havePrevious) {
           return;
@@ -79,32 +105,13 @@
             photoId: nextId
           }
         });
-      },
-      goGallery() {
-        this.$router.push({
-          name: "SingleGallery",
-          params: {
-            galleryId: this.$store.state.nowGallery.codeName
-          }
-        });
-      },
-      goHome() {
-        this.$router.push({
-          name: "Overtune"
-        });
-      },
-      goBack() {
-        switch (this.status) {
-          case 1:
-            this.goHome();
-            break;
-          case 2:
-            this.goGallery();
-            break;
-          default:
-            break;
-        }
       }
+    },
+    created: function () {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed: function () {
+      window.removeEventListener('scroll', this.handleScroll);
     }
   };
 
