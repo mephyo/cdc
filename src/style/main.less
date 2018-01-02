@@ -1,7 +1,7 @@
   @Moon: rgb(55, 50, 45);
   @Europa: rgb(195, 200, 200);
   @Arcturus: rgb(225, 220, 215);
-  @Neptune: rgb(75, 115, 240);
+  @Neptune: rgb(40, 50, 115);
   @Centaur: rgba(50, 50, 45, 0.5);
   @Cygnus: rgba(5, 5, 0, 0.25);
   body {
@@ -114,8 +114,13 @@
   .photo {
     max-width: 100%;
     display: block;
+    position: relative;
     outline: 1px solid @Arcturus;
     outline-offset: -0.5px;
+    img {
+        display: block;
+        width: 100%;
+    }
   }
 
   .caught {
@@ -198,9 +203,9 @@
     height: 200px;
     width: 200px;
     margin: 8px auto;
-    .able,
-    .bravo,
-    .charlie {
+    .anton,
+    .berta,
+    .casar {
       display: block;
       outline: 2px solid @Arcturus;
       outline-offset: -1px;
@@ -212,10 +217,13 @@
       left: 20px;
       object-fit: cover;
     }
-    .charlie {
-      transform: rotate(12deg) translateZ(0);
-    }
-    .bravo {
+    .berta {
       transform: rotate(-6deg) translateZ(0);
+    }
+    .berta {
+      transform: rotate(-6deg) translateZ(0);
+    }
+    .casar {
+      transform: rotate(12deg) translateZ(0);
     }
   }

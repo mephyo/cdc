@@ -10,6 +10,7 @@ Vue.use(Router)
 export default new Router({
   routes: [{
       path: '/',
+      alias: '/nlm',
       name: 'Overtune',
       component: Overtune
     },

@@ -4,10 +4,12 @@
     <h1>Camera del Cavallo</h1>
     <ul class="gallery-list">
       <li v-for="project in gallery" :key="project.codeName">
-        <router-link :to="project.codeName">
-          <stack :gallery="[project.photos[project.cover[0]].src, project.photos[project.cover[1]].src, project.photos[project.cover[2]].src]"></stack>
+        <lazy-component>
+          <router-link :to="project.codeName">
+            <stack :gallery="project.cover"></stack>
             <div class="title">{{project.name}}</div>
-        </router-link>
+          </router-link>
+        </lazy-component>
       </li>
     </ul>
   </div>
@@ -21,9 +23,33 @@
     components: {
       Stack
     },
+    data() {
+      return {
+        gallery: {},
+        outLaw: false
+      }
+    },
     computed: {
-      gallery() {
+      allGallery() {
         return this.$store.state.gallery;
+      },
+      filteredGallery() {
+        function checkPrivate(project) {
+          if (project.private === false) {
+            return project
+          }
+        }
+        return this.$store.state.gallery.filter(checkPrivate);
+      }
+    },
+    mounted() {
+      const edgeOfLaw = this.$route.path
+      if (edgeOfLaw === '/nlm') {
+        this.gallery = this.allGallery
+        this.outLaw = true
+      } else {
+        this.gallery = this.filteredGallery
+        this.outLaw = false
       }
     }
   };

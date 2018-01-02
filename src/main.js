@@ -12,9 +12,10 @@ import './style/main.less'
 Vue.config.productionTip = false
 
 Vue.use(VueLazyload, {
-  preLoad: 1.3,
+  preLoad: 1.5,
   attempt: 2,
-  listenEvents: ['scroll']
+  listenEvents: ['scroll'],
+  lazyComponent: true
 })
 
 /* eslint-disable no-new */

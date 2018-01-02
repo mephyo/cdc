@@ -7,7 +7,7 @@
       </div>
       <div class="tools">
         <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'">
-          <div class="navigator_button" v-if="this.theEndIsNear">我也很想拍你哦</div>
+          <div class="navigator_button" v-if="this.theEndIsNear">我也想拍</div>
         </a>
       </div>
     </div>
@@ -57,11 +57,7 @@
     },
     methods: {
       handleScroll: function () {
-        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - window.innerHeight / 2)) {
-          this.theEndIsNear = true
-        } else {
-          this.theEndIsNear = false
-        }
+        this.theEndIsNear = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - window.innerHeight / 2) ? true : false
       },
       // In SingleGallery
       goHome() {
@@ -80,9 +76,9 @@
       },
       goPrevious() {
         if (!this.havePrevious) {
-          return;
+          return "No more";
         }
-        const previousId = this.$store.state.nowGallery.photos[
+        let previousId = this.$store.state.nowGallery.photos[
           this.$store.state.nowPhotoIndex - 1
         ].codeName;
         this.$router.push({
@@ -94,9 +90,9 @@
       },
       goNext() {
         if (!this.haveNext) {
-          return;
+          return "No more";
         }
-        const nextId = this.$store.state.nowGallery.photos[
+        let nextId = this.$store.state.nowGallery.photos[
           this.$store.state.nowPhotoIndex + 1
         ].codeName;
         this.$router.push({

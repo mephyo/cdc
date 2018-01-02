@@ -1,7 +1,47 @@
 export default [{
+    name: 'Ivy',
+    codeName: 'Ivy',
+    private: true,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/ivy/thumb1.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/ivy/thumb5.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/ivy/thumb6.jpg'
+    ],
+    photos: [{
+      src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/1.jpg',
+      webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/1.webp',
+      codeName: 'ivy-1'
+    }, {
+      src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/2.jpg',
+      webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/2.webp',
+      codeName: 'ivy-1'
+    }, {
+      src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/3.jpg',
+      webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/3.webp',
+      codeName: 'ivy-1'
+    }, {
+      src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/4.jpg',
+      webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/4.webp',
+      codeName: 'ivy-1'
+    }, {
+      src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/5.jpg',
+      webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/5.webp',
+      codeName: 'ivy-1'
+    }, {
+      src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/6.jpg',
+      webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/6.webp',
+      codeName: 'ivy-1'
+    }]
+  },
+  {
     name: 'Lemon',
     codeName: 'lemon',
-    cover: [0, 5, 6],
+    private: false,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/lemon/1.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lemon/4.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lemon/6.jpg'
+    ],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lemon/1.jpg',
       codeName: 'lemon-1'
@@ -30,7 +70,12 @@ export default [{
   }, {
     name: 'Elapse',
     codeName: 'elapse',
-    cover: [1, 2, 4],
+    private: false,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/elapse/8.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/elapse/2.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/elapse/9.jpg'
+    ],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/elapse/1.jpg',
       codeName: 'elapse-1'
@@ -69,7 +114,12 @@ export default [{
   {
     name: 'Irene',
     codeName: 'irene',
-    cover: [1, 9, 13],
+    private: false,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/irene/1.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/irene/10.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/irene/15.jpg'
+    ],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/irene/1.jpg',
       codeName: 'irene-1'
@@ -140,7 +190,12 @@ export default [{
   }, {
     name: 'Lemon',
     codeName: 'afternoon',
-    cover: [4, 13, 30],
+    private: false,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/afternoon/11.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/afternoon/17.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/afternoon/31.jpg'
+    ],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/afternoon/1.jpg',
       codeName: 'november-1'
@@ -271,7 +326,12 @@ export default [{
   }, {
     name: 'Lemon',
     codeName: 'lemoninspring',
-    cover: [0, 2, 3],
+    private: false,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/lemoninspring/1.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lemoninspring/3.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lemoninspring/7.jpg'
+    ],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lemoninspring/1.jpg',
       codeName: 'spring-1'
@@ -297,7 +357,12 @@ export default [{
   }, {
     name: 'Lemon',
     codeName: 'lemoninsummer',
-    cover: [0, 3, 6],
+    private: false,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/lemoninsummer/1.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lemoninsummer/4.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lemoninsummer/7.jpg'
+    ],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lemoninsummer/1.jpg',
       codeName: 'summer-1'
@@ -323,7 +388,12 @@ export default [{
   }, {
     name: 'Lisa',
     codeName: 'lisa',
-    cover: [0, 12, 13],
+    private: false,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/lisa/1.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lisa/8.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lisa/25.jpg'
+    ],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lisa/1.jpg',
       codeName: 'lisa-1'
@@ -406,7 +476,12 @@ export default [{
   }, {
     name: 'Lisa',
     codeName: 'lisaundressed',
-    cover: [1, 3, 6],
+    private: false,
+    cover: [
+      'http://imgstorage-1255666137.file.myqcloud.com/lisaundressed/1.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lisaundressed/2.jpg',
+      'http://imgstorage-1255666137.file.myqcloud.com/lisaundressed/7.jpg'
+    ],
     photos: [{
       src: 'http://imgstorage-1255666137.file.myqcloud.com/lisaundressed/1.jpg',
       codeName: 'night-1'
