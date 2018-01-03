@@ -14,23 +14,23 @@ export default [{
     }, {
       src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/2.jpg',
       webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/2.webp',
-      codeName: 'ivy-1'
+      codeName: 'ivy-2'
     }, {
       src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/3.jpg',
       webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/3.webp',
-      codeName: 'ivy-1'
+      codeName: 'ivy-3'
     }, {
       src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/4.jpg',
       webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/4.webp',
-      codeName: 'ivy-1'
+      codeName: 'ivy-4'
     }, {
       src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/5.jpg',
       webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/5.webp',
-      codeName: 'ivy-1'
+      codeName: 'ivy-5'
     }, {
       src: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/6.jpg',
       webp: 'http://imgstorage-1255666137.file.myqcloud.com/ivy/6.webp',
-      codeName: 'ivy-1'
+      codeName: 'ivy-6'
     }]
   },
   {
