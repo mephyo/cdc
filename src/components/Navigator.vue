@@ -1,20 +1,15 @@
 <template>
-  <nav class="navigator" v-if="this.scenes !== 'Overtune'">
-    <div class="navigator_content_wrapper" v-if="this.scenes === 'SingleGallery'||'Apply'">
+  <nav class="navigator" v-if="scenes !== 'Overtune'">
+    <div class="navigator_content_wrapper" v-if="scenes === 'SingleGallery'">
       <div class="navs" @click="goHome">
         <div class="icon icon_left"></div>
         <div class="logo"></div>
       </div>
-      <div class="tools">
-        <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'">
-          <div class="navigator_button" v-if="this.theEndIsNear">我也想拍</div>
-        </a>
-      </div>
     </div>
-    <div class="navigator_content_wrapper" v-if="this.scenes === 'SinglePhoto'">
+    <div class="navigator_content_wrapper" v-if="scenes === 'SinglePhoto'">
       <div class="navs" @click="goGallery">
         <div class="icon icon_left"></div>
-        <div class="gallery-name">{{this.galleryName}}</div>
+        <div class="gallery-name">{{galleryName}}</div>
       </div>
       <div class="tools">
         <div class="icon icon_back" @click="goPrevious" :class="{disabled : !havePrevious}"></div>
@@ -29,11 +24,6 @@
     name: "Navigator",
     props: {
       gallery: Object
-    },
-    data() {
-      return {
-        theEndIsNear: false
-      }
     },
     computed: {
       scenes() {
@@ -50,15 +40,12 @@
         }
       },
       haveNext() {
-        if (this.$store.state.nowPhoto) {
+        if (this.$store.state.nowPhoto && this.$store.state.nowGallery) {
           return this.$store.state.nowPhotoIndex + 1 < this.$store.state.nowGallery.photos.length ? true : false;
         }
       }
     },
     methods: {
-      handleScroll: function () {
-        this.theEndIsNear = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - window.innerHeight / 2) ? true : false
-      },
       // In SingleGallery
       goHome() {
         this.$router.push({
@@ -102,12 +89,6 @@
           }
         });
       }
-    },
-    created: function () {
-      window.addEventListener('scroll', this.handleScroll);
-    },
-    destroyed: function () {
-      window.removeEventListener('scroll', this.handleScroll);
     }
   };
 

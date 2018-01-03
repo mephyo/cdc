@@ -1,0 +1,78 @@
+<template>
+    <div class="apply_wrapper">
+        <a class="apply_button" v-if="!haveApply" @click="wishYouWereHere">我也想拍</a>
+        <div class="apply_content" v-if="haveApply">
+            <div class="apply_content_inner">
+                <p>谢谢你喜欢我的照片，我也很想拍你哦。</p>
+                <template v-if="haveLocation">
+                    <p v-if="ourDistance < 200">我可以来你的城市找你拍照。</p>
+                    <p v-else>我可以给你拍照，但是你必须来苏州找我。</p>
+                </template>
+            </div>
+        </div>
+        <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'" class="apply_button" v-if="haveApply">给我发邮件吧</a>
+        <div class="apply_memo" v-if="haveApply">
+            <p>请不要更改邮件标题，可能会影响自动回复</p>
+            <p v-if="!haveLocation">请在邮件里告诉我所在的城市</p>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "Apply",
+        data() {
+            return {
+                haveApply: false,
+                haveLocation: false,
+                ourDistance: NaN
+            }
+        },
+        methods: {
+            wishYouWereHere() {
+                let that = this
+                if (!navigator.geolocation) {
+                    that.haveApply = true
+                    console.log('您的浏览器不支持地理位置')
+                    return;
+                }
+                const myLocation = {
+                    latitude: 31.330824,
+                    longitude: 120.643594
+                }
+
+                function getDistance(lon1, lat1, lon2, lat2) {
+                    if (typeof (Number.prototype.toRad) === "undefined") {
+                        Number.prototype.toRad = function () {
+                            return this * Math.PI / 180;
+                        }
+                    }
+                    let R = 6371;
+                    let dLat = (lat2 - lat1).toRad();
+                    let dLon = (lon2 - lon1).toRad();
+                    let a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                        Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+                        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                    let d = R * c;
+                    that.ourDistance = d
+                    that.haveApply = true
+                }
+
+                function geoSuccess(position) {
+                    let lat = position.coords.latitude;
+                    let lon = position.coords.longitude;
+                    getDistance(lon, lat, myLocation.longitude, myLocation.latitude)
+                    that.haveLocation = true
+                }
+
+                function geoError() {
+                    that.haveApply = true
+                    console.log('无法获取您的位置')
+                    return;
+                }
+                navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+            }
+        }
+    };
+</script>

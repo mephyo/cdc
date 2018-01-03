@@ -15,8 +15,8 @@
     },
     methods: {
       indexing() {
-        const galleryId = this.$route.params.galleryId;
-        const photoId = this.$route.params.photoId;
+        let galleryId = this.$route.params.galleryId;
+        let photoId = this.$route.params.photoId;
         if (galleryId) {
           this.$store.commit("changeGallery", galleryId);
         }
