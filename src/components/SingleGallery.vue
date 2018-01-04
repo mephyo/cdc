@@ -4,14 +4,14 @@
         <ul>
             <li v-for="photo in gallery.photos" :key="photo.codeName">
                 <lazy-component>
-                    <a @click="goPhoto(photo.codeName)">
+                    <router-link :to="{ name: 'SinglePhoto', params: { photoId: photo.codeName }}">
                         <picture class="photo">
                             <source :srcset="photo.webp" type="image/webp" v-if="photo.webp">
                             <source :srcset="photo.src" type="image/jpeg">
                             <img :src="photo.src">
                         </picture>
                         <img class="caught" src="../assets/images/caught.png">
-                    </a>
+                    </router-link>
                 </lazy-component>
             </li>
         </ul>
@@ -30,16 +30,6 @@
         computed: {
             gallery() {
                 return this.$store.state.nowGallery;
-            }
-        },
-        methods: {
-            goPhoto(codeName) {
-                this.$router.push({
-                    name: "SinglePhoto",
-                    params: {
-                        photoId: codeName
-                    }
-                });
             }
         }
     };

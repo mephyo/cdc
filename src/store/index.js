@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    gallery: Gallery,
+    gallery: Gallery.reverse(),
     nowGalleryIndex: 0,
     nowGallery: {},
     nowPhotoIndex: 0,

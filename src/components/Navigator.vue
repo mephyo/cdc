@@ -12,8 +12,8 @@
         <div class="gallery-name">{{galleryName}}</div>
       </div>
       <div class="tools">
-        <div class="icon icon_back" @click="goPrevious" :class="{disabled : !havePrevious}"></div>
-        <div class="icon icon_forward" @click="goNext" :class="{disabled : !haveNext}"></div>
+        <!-- <div class="icon icon_back" @click="goPrevious" :class="{disabled : !havePrevious}"></div> -->
+        <!-- <div class="icon icon_forward" @click="goNext" :class="{disabled : !haveNext}"></div> -->
       </div>
     </div>
   </nav>
@@ -35,12 +35,12 @@
         }
       },
       havePrevious() {
-        if (this.$store.state.nowPhoto) {
+        if (this.$store.state.nowPhoto.src) {
           return this.$store.state.nowPhotoIndex > 0 ? true : false;
         }
       },
       haveNext() {
-        if (this.$store.state.nowPhoto && this.$store.state.nowGallery) {
+        if (this.$store.state.nowPhoto.src) {
           return this.$store.state.nowPhotoIndex + 1 < this.$store.state.nowGallery.photos.length ? true : false;
         }
       }

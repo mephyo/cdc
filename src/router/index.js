@@ -15,12 +15,12 @@ export default new Router({
       component: Overtune
     },
     {
-      path: '/:galleryId',
+      path: '/gallery/:galleryId',
       name: 'SingleGallery',
       component: SingleGallery
     },
     {
-      path: '/:galleryId/:photoId',
+      path: '/gallery/:galleryId/photo/:photoId',
       name: 'SinglePhoto',
       component: SinglePhoto
     }

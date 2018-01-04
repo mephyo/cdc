@@ -1,6 +1,9 @@
 <template>
     <div class="apply_wrapper">
-        <a class="apply_button" v-if="!haveApply" @click="wishYouWereHere">我也想拍</a>
+        <a class="apply_button apply_yellow" v-if="!haveApply" @click="wishYouWereHere" :class="{'apply_crazy': haveClicked}">
+            <span v-if="!haveClicked">我也想拍</span>
+            <span v-else>…稍等…</span>
+        </a>
         <div class="apply_content" v-if="haveApply">
             <div class="apply_content_inner">
                 <p>谢谢你喜欢我的照片，我也很想拍你哦。</p>
@@ -10,7 +13,7 @@
                 </template>
             </div>
         </div>
-        <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'" class="apply_button" v-if="haveApply">给我发邮件吧</a>
+        <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'" class="apply_button apply_blue" v-if="haveApply">给我发邮件吧</a>
         <div class="apply_memo" v-if="haveApply">
             <p>请不要更改邮件标题，可能会影响自动回复</p>
             <p v-if="!haveLocation">请在邮件里告诉我所在的城市</p>
@@ -23,6 +26,7 @@
         name: "Apply",
         data() {
             return {
+                haveClicked: false,
                 haveApply: false,
                 haveLocation: false,
                 ourDistance: NaN
@@ -31,8 +35,15 @@
         methods: {
             wishYouWereHere() {
                 let that = this
+                that.haveClicked = true
+
+                function animiIsGreat() {
+                    setTimeout(() => {
+                        that.haveApply = true
+                    }, 2000);
+                }
                 if (!navigator.geolocation) {
-                    that.haveApply = true
+                    animiIsGreat()
                     console.log('您的浏览器不支持地理位置')
                     return;
                 }
@@ -56,7 +67,7 @@
                     let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
                     let d = R * c;
                     that.ourDistance = d
-                    that.haveApply = true
+                    animiIsGreat()
                 }
 
                 function geoSuccess(position) {
@@ -67,7 +78,7 @@
                 }
 
                 function geoError() {
-                    that.haveApply = true
+                    animiIsGreat()
                     console.log('无法获取您的位置')
                     return;
                 }

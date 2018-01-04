@@ -47,7 +47,7 @@
   .navigator {
       position: fixed;
       width: 100vw;
-      height: 28px;
+      height: 36px;
       bottom: 0;
       left: 0;
       background-color: @Centaur;
@@ -59,7 +59,7 @@
           .navs {
               display: flex;
               justify-content: flex-start;
-              height: 24px;
+              height: 32px;
               max-width: 50%;
               overflow: hidden;
               margin: 2px;
@@ -68,7 +68,7 @@
           .tools {
               display: flex;
               justify-content: space-around;
-              height: 24px;
+              height: 32px;
               width: 50%;
               margin: 2px;
           }
@@ -80,8 +80,8 @@
               cursor: not-allowed;
           }
           .gallery-name {
-              height: 24px;
-              line-height: 24px;
+              height: 32px;
+              line-height: 32px;
               font-size: 0.875em;
               font-weight: 600;
           }
@@ -121,15 +121,22 @@
       opacity: 0;
   }
 
-  .single-photo {
-      text-align: center;
-      margin: 8px 4px 32px 4px;
+  .single_photo {
       position: relative;
-      .photo_wrapper {
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      .single_slide {
           position: relative;
-          .photo {
-              margin: 0 auto;
-              box-shadow: 0 32px 64px @Centaur;
+          .photo_wrapper {
+              position: relative;
+              margin: 16px;
+              padding-bottom: 36px;
+              .photo {
+                  margin: 0 auto;
+                  box-shadow: 0 16px 32px @Cygnus;
+                  max-height: ~"calc(100vh - 68px)";
+              }
           }
           p {
               margin: 8px 0;
@@ -139,7 +146,8 @@
 
   .single-gallery {
       text-align: center;
-      margin: 8px 4px 32px 4px;
+      margin: 8px 4px 36px 4px;
+      min-height: 100vh;
       li {
           position: relative;
           .photo {
@@ -150,8 +158,8 @@
   }
 
   .icon {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       background-position: center center;
       background-size: 24px 24px;
       background-repeat: no-repeat;
@@ -172,9 +180,9 @@
 
   .logo {
       background-image: url(../assets/images/logo.svg);
-      width: 24px;
-      height: 24px;
-      background-position: 1px 1px;
+      width: 22px;
+      height: 32px;
+      background-position: 0 6px;
       background-size: 21px 21px;
       background-repeat: no-repeat;
   }
@@ -224,20 +232,30 @@
           border-radius: 15px;
           width: 120px;
           box-shadow: 0 4px 8px @Cygnus;
-          color: @Europa;
           font-size: 0.875em;
           font-weight: 500;
-          background: linear-gradient(270deg, #ff7e00, #0080ff);
-          background-size: 400% 400%;
-          animation: DaNang 10s ease infinite;
+          &.apply_yellow {
+              background-color: #ff7e00;
+              color: #fff;
+          }
+          &.apply_blue {
+              color: @Europa;
+              background-color: #0080ff;
+          }
+          &.apply_crazy {
+              color: @Europa;
+              background: linear-gradient(270deg, #ff7e00, #0080ff);
+              background-size: 200% 200%;
+              animation: DaNang 1s ease infinite;
+          }
       }
       .apply_content {
           text-align: start;
           text-indent: 1em;
           margin: 16px 4px;
           background: linear-gradient(270deg, #ff7e00, #0080ff);
-          background-size: 400% 400%;
-          animation: DaNang 10s ease infinite;
+          background-size: 200% 200%;
+          animation: DaNang 1s ease infinite;
           overflow: hidden;
           border-radius: 4px;
           .apply_content_inner {
