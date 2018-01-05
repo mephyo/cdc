@@ -8,7 +8,7 @@
             <li v-for="project in gallery" :key="project.codeName">
                 <lazy-component>
                     <router-link :to="{ name: 'SingleGallery', params: { galleryId: project.codeName }}">
-                        <stack :gallery="project.cover"></stack>
+                        <stark :gallery="project.cover"></stark>
                         <div class="title">{{project.name}}</div>
                     </router-link>
                 </lazy-component>
@@ -18,12 +18,12 @@
 </template>
 
 <script>
-    import Stack from "@/components/Stack";
+    import Stark from "@/components/Stark";
 
     export default {
         name: "Overtune",
         components: {
-            Stack
+            Stark
         },
         data() {
             return {

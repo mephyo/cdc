@@ -147,12 +147,14 @@
   .single-gallery {
       text-align: center;
       margin: 8px 4px 36px 4px;
-      min-height: 100vh;
-      li {
-          position: relative;
-          .photo {
-              margin: 8px auto;
-              box-shadow: 0 4px 8px @Centaur;
+      ul {
+          min-height: 100vh;
+          li {
+              position: relative;
+              .photo {
+                  margin: 8px auto;
+                  box-shadow: 0 4px 8px @Centaur;
+              }
           }
       }
   }
@@ -195,14 +197,12 @@
       margin: 8px auto 0 auto;
   }
 
-  .stack {
+  .king-in-the-north {
       position: relative;
       height: 200px;
       width: 200px;
       margin: 8px auto;
-      .anton,
-      .berta,
-      .casar {
+      .stark {
           display: block;
           outline: 2px solid @Arcturus;
           outline-offset: -1px;
@@ -213,12 +213,7 @@
           top: 20px;
           left: 20px;
           object-fit: cover;
-      }
-      .berta {
-          transform: rotate(-6deg) translateZ(0);
-      }
-      .casar {
-          transform: rotate(12deg) translateZ(0);
+          transition: all 0.05s ease;
       }
   }
 

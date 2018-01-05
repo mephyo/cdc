@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Gallery from '../Gallery'
-// import Gallery from '../Galerie'
+import Gallery from '../../static/Gallery'
+// import Gallery from '../../static/Galerie'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    gallery: Gallery.reverse(),
+    gallery: Gallery.gallery.reverse(),
     nowGalleryIndex: 0,
     nowGallery: {},
     nowPhotoIndex: 0,
