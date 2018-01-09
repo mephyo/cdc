@@ -5,11 +5,7 @@
             <li v-for="photo in gallery.photos" :key="photo.codeName">
                 <lazy-component>
                     <router-link :to="{ name: 'SinglePhoto', params: { photoId: photo.codeName }}">
-                        <picture class="photo">
-                            <source :srcset="photo.webp" type="image/webp" v-if="photo.webp">
-                            <source :srcset="photo.src" type="image/jpeg">
-                            <img :src="photo.src">
-                        </picture>
+                        <img class="photo" v-lazy="photo.src">
                         <img class="caught" src="../assets/images/caught.png">
                     </router-link>
                 </lazy-component>

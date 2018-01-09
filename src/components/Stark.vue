@@ -55,7 +55,9 @@
             window.removeEventListener('scroll', this.northenInvading);
         },
         mounted() {
-            window.scroll(0, 1)
+            setTimeout(() => {
+                this.northenInvading()
+            }, 1000);
         }
     }
 </script>

@@ -106,10 +106,6 @@
       position: relative;
       outline: 1px solid @Arcturus;
       outline-offset: -0.5px;
-      img {
-          display: block;
-          width: 100%;
-      }
   }
 
   .caught {
@@ -122,9 +118,12 @@
   }
 
   .single_photo {
-      position: relative;
-      text-align: center;
+      position: fixed;
       height: 100vh;
+      width: 100vw;
+      top: 0;
+      left: 0;
+      text-align: center;
       overflow: hidden;
       .single_slide {
           position: relative;
@@ -178,6 +177,42 @@
 
   .icon_left {
       background-image: url(../assets/images/ic_keyboard_arrow_left_white_24px.svg);
+  }
+
+  .icon_airplane {
+      background-image: url(../assets/images/airplane.svg);
+  }
+
+  .icon_heart {
+      background-image: url(../assets/images/heart.svg);
+  }
+
+  .icon_ghost {
+      background-image: url(../assets/images/ghost.svg);
+  }
+
+  .icon_cake {
+      background-image: url(../assets/images/cake-layered.svg);
+  }
+
+  .icon_iris {
+      background-image: url(../assets/images/camera-iris.svg);
+  }
+
+  .icon_cat {
+      background-image: url(../assets/images/cat.svg);
+  }
+
+  .icon_dna {
+      background-image: url(../assets/images/dna.svg);
+  }
+
+  .icon_duck {
+      background-image: url(../assets/images/duck.svg);
+  }
+
+  .icon_run {
+      background-image: url(../assets/images/run.svg);
   }
 
   .logo {
@@ -270,6 +305,44 @@
       }
   }
 
+  .alien {
+      position: fixed;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      .keyboard {
+          width: 300px;
+          height: 300px;
+          display: flex;
+          flex-wrap: wrap;
+          .key {
+              width: 90px;
+              height: 90px;
+              margin: 5px;
+              background-color: rgba(0, 0, 0, 0.25);
+              transition: 0.125s ease;
+              cursor: pointer;
+              .icon {
+                  opacity: 0.5;
+                  transition: inherit;
+                  margin: 28px;
+              }
+              &:active {
+                  background-color: rgba(0, 0, 0, 0.125);
+                  .icon {
+                      opacity: 0.25;
+                  }
+              }
+          }
+      }
+  }
+
   @keyframes DaNang {
       0% {
           background-position: 0% 50%
@@ -280,4 +353,15 @@
       100% {
           background-position: 0% 50%
       }
+  }
+
+  .trans_blur-enter-active,
+  .trans_blur-leave-active {
+      transition: 0.5s
+  }
+
+  .trans_blur-enter,
+  .trans_blur-leave-to {
+      filter: blur(10px);
+      opacity: 0
   }

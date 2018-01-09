@@ -1,6 +1,6 @@
 <template>
     <main id="app">
-        <router-view/>
+        <router-view v-if="galleryLoaded" />
         <navigator></navigator>
     </main>
 </template>
@@ -13,8 +13,14 @@
         components: {
             Navigator
         },
+        data() {
+            return {
+                galleryLoaded: false
+            }
+        },
         methods: {
             indexing() {
+                this.galleryLoaded = true
                 let galleryId = this.$route.params.galleryId;
                 let photoId = this.$route.params.photoId;
                 if (galleryId) {
@@ -26,8 +32,7 @@
             }
         },
         mounted() {
-            this.indexing();
-            console.log("Love is wise, hatred is foolish.");
+            this.$store.dispatch("getGallery").then(() => this.indexing())
         },
         watch: {
             $route() {
