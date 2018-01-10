@@ -8,7 +8,7 @@
       margin: 0;
       padding: 0;
       background-color: @Moon;
-      font-family: 'Seravek', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Source Han Sans', sans-serif;
+      font-family: 'Seravek', 'Calibri', -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       font-size: 1em;
       font-weight: 400;
       color: @Europa;
@@ -153,6 +153,16 @@
               .photo {
                   margin: 8px auto;
                   box-shadow: 0 4px 8px @Centaur;
+              }
+              .photo_title {
+                  position: sticky;
+                  bottom: 0;
+                  right: 0;
+                  height: 36px;
+                  line-height: 36px;
+                  font-size: 0.875em;
+                  color: @Arcturus;
+                  z-index: 3
               }
           }
       }

@@ -38,8 +38,8 @@ export default new Vuex.Store({
     },
     actions: {
         getGallery: function (context) {
-            // const url = '/static/Gallery.json'
-            const url = '/static/Galerie.json'
+            const url = '/static/Gallery.json'
+            // const url = '/static/Galerie.json'
 
             return new Promise((resolve, reject) => {
                 Vue.http.get(url).then(response => {

@@ -15,8 +15,7 @@ Vue.config.productionTip = false
 Vue.use(VueLazyload, {
     preLoad: 1.5,
     attempt: 2,
-    listenEvents: ['scroll'],
-    lazyComponent: true
+    listenEvents: ['scroll']
 })
 
 Vue.use(VueAgile)
