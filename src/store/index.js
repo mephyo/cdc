@@ -8,6 +8,7 @@ Vue.use(VueResource)
 export default new Vuex.Store({
     state: {
         showPrivate: false,
+        hackMode: false,
         gallery: [],
         nowGalleryIndex: 0,
         nowGallery: {},
@@ -15,11 +16,14 @@ export default new Vuex.Store({
         nowPhoto: {}
     },
     mutations: {
-        setGallery: function (state, gallery) {
-            state.gallery = gallery.body.gallery.reverse()
-        },
         getMeOut: function (state) {
             state.showPrivate = true
+        },
+        hackModeEnabled: function (state) {
+            state.hackMode = true
+        },
+        setGallery: function (state, gallery) {
+            state.gallery = gallery.body.gallery.reverse()
         },
         changeGallery: function (state, galleryId) {
             const galleryIndex = state.gallery.map(gallery => gallery.codeName).indexOf(galleryId)
@@ -34,15 +38,15 @@ export default new Vuex.Store({
     },
     actions: {
         getGallery: function (context) {
-            const url = '/static/Gallery.json'
-            // const url = '/static/Galerie.json'
+            // const url = '/static/Gallery.json'
+            const url = '/static/Galerie.json'
 
             return new Promise((resolve, reject) => {
                 Vue.http.get(url).then(response => {
                     context.commit("setGallery", response)
                     resolve()
                 }, response => {
-                    console.log("I'm totally fucked.")
+                    console.error("I'm totally fucked.")
                 });
             })
         },

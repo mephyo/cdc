@@ -2,7 +2,7 @@
     <div class="overtune">
         <transition name="trans_blur">
             <div v-if="!locked">
-                <div class="logo main-logo"></div>
+                <div class="logo main-logo" :class="{invert: hackMode}" @click="launchHackMode"></div>
                 <h1>Camera del Cavallo
                     <span v-if="noLimits"> 🔞</span>
                 </h1>
@@ -33,12 +33,16 @@
         data() {
             return {
                 gallery: {},
-                locked: true
+                locked: true,
+                log: 0
             }
         },
         computed: {
             noLimits() {
                 return this.$store.state.showPrivate;
+            },
+            hackMode() {
+                return this.$store.state.hackMode;
             },
             badFilter() {
                 function checkPrivate(project) {
@@ -59,7 +63,11 @@
         },
         methods: {
             rebelion() {
+                const haveAccess = sessionStorage.getItem('locked')
                 const edgeOfLaw = this.$route.path
+                if (haveAccess) {
+                    this.locked = false
+                }
                 if (edgeOfLaw === '/nlm') {
                     this.$store.commit("getMeOut")
                     this.gallery = this.badFilter
@@ -70,6 +78,14 @@
             },
             unlock() {
                 this.locked = false
+                sessionStorage.setItem('locked', false);
+            },
+            launchHackMode() {
+                if (this.log >= 7) {
+                    this.$store.commit("hackModeEnabled")
+                } else {
+                    this.log++
+                }
             }
         },
         mounted() {

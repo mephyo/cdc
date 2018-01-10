@@ -6,7 +6,7 @@
                 <lazy-component>
                     <router-link :to="{ name: 'SinglePhoto', params: { photoId: photo.codeName }}">
                         <img class="photo" v-lazy="photo.src">
-                        <img class="caught" src="../assets/images/caught.png">
+                        <img class="caught" src="../assets/images/caught.png" v-if="!hackMode">
                     </router-link>
                 </lazy-component>
             </li>
@@ -26,6 +26,9 @@
         computed: {
             gallery() {
                 return this.$store.state.nowGallery;
+            },
+            hackMode() {
+                return this.$store.state.hackMode;
             }
         }
     };

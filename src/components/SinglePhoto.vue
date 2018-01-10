@@ -4,7 +4,7 @@
             <div class="single_slide" v-for="photo in gallery.photos" :key="photo.codeName">
                 <div class="photo_wrapper">
                     <img class="photo" :src="photo.src">
-                    <img class="caught" src="../assets/images/caught.png">
+                    <img class="caught" src="../assets/images/caught.png" v-if="!hackMode">
                 </div>
                 <p v-if="photo.desc">{{photo.desc}}</p>
             </div>
@@ -32,10 +32,13 @@
             photo() {
                 return this.$store.state.nowPhoto;
             },
-            galleryReady(){
-                if(this.$store.state.nowGallery.photos){
+            galleryReady() {
+                if (this.$store.state.nowGallery.photos) {
                     return true
                 }
+            },
+            hackMode() {
+                return this.$store.state.hackMode;
             }
         }
     };
