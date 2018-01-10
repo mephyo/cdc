@@ -8,6 +8,7 @@ Vue.use(VueResource)
 export default new Vuex.Store({
     state: {
         showPrivate: false,
+        onlyForLisa: false,
         hackMode: false,
         gallery: [],
         nowGalleryIndex: 0,
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     mutations: {
         getMeOut: function (state) {
             state.showPrivate = true
+        },
+        myBaby: function (state) {
+            state.onlyForLisa = true
         },
         hackModeEnabled: function (state) {
             state.hackMode = true
@@ -38,8 +42,8 @@ export default new Vuex.Store({
     },
     actions: {
         getGallery: function (context) {
-            // const url = '/static/Gallery.json'
-            const url = '/static/Galerie.json'
+            const url = '/static/Gallery.json'
+            // const url = '/static/Galerie.json'
 
             return new Promise((resolve, reject) => {
                 Vue.http.get(url).then(response => {

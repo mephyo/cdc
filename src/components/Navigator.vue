@@ -29,6 +29,9 @@
             noLimits() {
                 return this.$store.state.showPrivate;
             },
+            noSecrets() {
+                return this.$store.state.onlyForLisa;
+            },
             scenes() {
                 return this.$route.name
             },
@@ -51,7 +54,11 @@
         methods: {
             // In SingleGallery
             goHome() {
-                if (this.noLimits) {
+                if (this.noSecrets) {
+                    this.$router.push({
+                        path: "/18x"
+                    });
+                } else if (this.noLimits) {
                     this.$router.push({
                         path: "/nlm"
                     });
