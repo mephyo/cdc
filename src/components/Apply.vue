@@ -13,10 +13,13 @@
                 </template>
             </div>
         </div>
-        <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'" class="apply_button apply_blue" v-if="haveApply">给我发邮件吧</a>
+        <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'" class="apply_button apply_blue" v-if="haveApply" @click="sendMail">给我发邮件吧</a>
         <div class="apply_memo" v-if="haveApply">
             <p>请不要更改邮件标题，可能会影响自动回复</p>
             <p v-if="!haveLocation">请在邮件里告诉我所在的城市</p>
+            <p v-if="haveSent">如果邮件客户端没有启动，请手动发送邮件到
+                <strong>hergloves@gmail.com</strong>
+            </p>
         </div>
     </div>
 </template>
@@ -29,7 +32,8 @@
                 haveClicked: false,
                 haveApply: false,
                 haveLocation: false,
-                ourDistance: NaN
+                ourDistance: NaN,
+                haveSent: false
             }
         },
         methods: {
@@ -39,7 +43,8 @@
 
                 function animiIsGreat() {
                     setTimeout(() => {
-                        that.haveApply = true
+                        that.haveApply = true;
+                        document.body.scrollTop = document.body.scrollHeight;
                     }, 2000);
                 }
                 if (!navigator.geolocation) {
@@ -83,6 +88,11 @@
                     return;
                 }
                 navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+            },
+            sendMail() {
+                setTimeout(() => {
+                    this.haveSent = true
+                }, 1000);
             }
         }
     };
