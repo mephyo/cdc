@@ -20,7 +20,7 @@ export default new Vuex.Store({
         getMeOut: function (state) {
             state.showPrivate = true
         },
-        myBaby: function (state) {
+        lisaIsWatching: function (state) {
             state.onlyForLisa = true
         },
         hackModeEnabled: function (state) {

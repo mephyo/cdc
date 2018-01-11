@@ -56,7 +56,7 @@
         },
         methods: {
             shuffle(array) {
-                var currentIndex = array.length,
+                const currentIndex = array.length,
                     temporaryValue, randomIndex;
                 while (0 !== currentIndex) {
                     randomIndex = Math.floor(Math.random() * currentIndex);

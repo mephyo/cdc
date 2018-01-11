@@ -49,19 +49,14 @@
             },
             secretFilter() {
                 function checkPrivate(project) {
-                    if (project.private === true && project.secret === false) {
+                    if (project.secret === false) {
                         return project
                     }
                 }
                 return this.$store.state.gallery.filter(checkPrivate);
             },
             badFilter() {
-                function checkPrivate(project) {
-                    if (project.private === true) {
-                        return project
-                    }
-                }
-                return this.$store.state.gallery.filter(checkPrivate);
+                return this.$store.state.gallery;
             },
             goodFilter() {
                 function checkPrivate(project) {
@@ -83,7 +78,7 @@
                     this.$store.commit("getMeOut")
                     this.gallery = this.badFilter
                 } else if (edgeOfLaw === '/18x') {
-                    this.$store.commit("myBaby")
+                    this.$store.commit("lisaIsWatching")
                     this.gallery = this.secretFilter
                 } else {
                     this.locked = false

@@ -105,7 +105,9 @@
       display: block;
       position: relative;
       outline: 1px solid @Arcturus;
-      outline-offset: -0.5px;
+      outline-offset: -1px;
+      border: 2px solid @Centaur;
+      box-sizing: border-box;
   }
 
   .caught {
@@ -265,6 +267,8 @@
           left: 20px;
           object-fit: cover;
           transition: all 0.05s ease;
+          border: 2px solid @Centaur;
+          box-sizing: border-box;
       }
   }
 

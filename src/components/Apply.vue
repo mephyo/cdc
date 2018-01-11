@@ -20,6 +20,7 @@
             <p v-if="haveSent">如果邮件客户端没有启动，请手动发送邮件到
                 <strong>hergloves@gmail.com</strong>
             </p>
+            <p v-if="haveSent">自动回复将会即刻到达，如果没有收到，检查一下您收件箱的垃圾邮件。</p>
         </div>
     </div>
 </template>
@@ -41,10 +42,14 @@
                 let that = this
                 that.haveClicked = true
 
+                function scrollBottom() {
+                    document.body.scrollTop = document.body.scrollHeight;
+                }
+
                 function animiIsGreat() {
                     setTimeout(() => {
                         that.haveApply = true;
-                        document.body.scrollTop = document.body.scrollHeight;
+                        scrollBottom();
                     }, 2000);
                 }
                 if (!navigator.geolocation) {
@@ -91,7 +96,8 @@
             },
             sendMail() {
                 setTimeout(() => {
-                    this.haveSent = true
+                    this.haveSent = true;
+                    scrollBottom();
                 }, 1000);
             }
         }
