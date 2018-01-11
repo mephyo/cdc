@@ -53,6 +53,6 @@ export default new Vuex.Store({
                     console.error("I'm totally fucked.")
                 });
             })
-        },
+        }
     }
 })

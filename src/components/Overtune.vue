@@ -14,6 +14,7 @@
                         </router-link>
                     </li>
                 </ul>
+                <div class="logo ww_logo" :class="{invert: hackMode}" @click="launchHackMode"></div>
             </div>
             <alien v-else @unlocked="unlock"></alien>
         </transition>
