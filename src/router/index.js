@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Overtune from '@/components/Overtune'
 import SingleGallery from '@/components/SingleGallery'
 import SinglePhoto from '@/components/SinglePhoto'
-
+import Apply from '@/components/Apply'
 
 Vue.use(Router)
 
@@ -13,6 +13,11 @@ export default new Router({
       alias: ['/nlm', '/18x'],
       name: 'Overtune',
       component: Overtune
+    },
+    {
+      path: '/Apply',
+      name: 'Apply',
+      component: Apply
     },
     {
       path: '/gallery/:galleryId',

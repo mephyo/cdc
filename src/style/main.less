@@ -240,13 +240,35 @@
 
   .ww_logo {
     background-image: url(../assets/images/ww_logo.svg);
-    width: 56px;
-    height: 56px;
+    width: 28px;
+    height: 28px;
     background-position: center center;
-    background-size: 56px 56px;
+    background-size: 28px 28px;
     background-repeat: no-repeat;
     opacity: 0.875;
-    margin: 16px auto 0 auto;
+}
+
+.ww_wrapper {
+    display: flex;
+    margin: 32px 32px 0 32px;
+    padding: 8px 0;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid @Cygnus;
+    .ww_text {
+        font-size: 0.875em;
+        color: @Europa;
+        font-style: italic;
+        font-weight: 300;
+        margin: 0 4px;
+        width: 40px;
+        &:first-child {
+            text-align: right;
+        }
+        &:last-child {
+            text-align: left;
+        }
+    }
 }
 
   .main-logo {
@@ -284,6 +306,7 @@
   }
 
   .apply_wrapper {
+      text-align: center;
       .apply_button {
           display: block;
           text-align: center;
@@ -372,6 +395,10 @@
       }
   }
 
+  .rotating {
+    animation: rotating 2s ease infinite;
+}
+
   @keyframes DaNang {
       0% {
           background-position: 0% 50%
@@ -382,6 +409,15 @@
       100% {
           background-position: 0% 50%
       }
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .trans_blur-enter-active,

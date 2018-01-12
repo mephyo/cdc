@@ -11,16 +11,19 @@
             </li>
         </ul>
         <apply></apply>
+        <wirbelwind></wirbelwind>
     </div>
 </template>
 
 <script>
     import Apply from "@/components/Apply";
+    import Wirbelwind from "@/components/Wirbelwind";
 
     export default {
         name: "SingleGallery",
         components: {
-            Apply
+            Apply,
+            Wirbelwind
         },
         computed: {
             gallery() {

@@ -14,7 +14,7 @@
                         </router-link>
                     </li>
                 </ul>
-                <div class="logo ww_logo" :class="{invert: hackMode}" @click="launchHackMode"></div>
+                <wirbelwind></wirbelwind>
             </div>
             <alien v-else @unlocked="unlock"></alien>
         </transition>
@@ -24,12 +24,14 @@
 <script>
     import Stark from "@/components/Stark";
     import Alien from "@/components/Alien";
+    import Wirbelwind from "@/components/Wirbelwind";
 
     export default {
         name: "Overtune",
         components: {
             Stark,
-            Alien
+            Alien,
+            Wirbelwind
         },
         data() {
             return {

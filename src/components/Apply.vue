@@ -1,7 +1,10 @@
 <template>
     <div class="apply_wrapper">
         <a class="apply_button apply_yellow" v-if="!haveApply" @click="wishYouWereHere" :class="{'apply_crazy': haveClicked}">
-            <span v-if="!haveClicked">我也想拍</span>
+            <span v-if="!haveClicked">
+                <template v-if="inSinglePage">点我</template>
+                <template v-else>我也想拍</template>
+            </span>
             <span v-else>…稍等…</span>
         </a>
         <div class="apply_content" v-if="haveApply">
@@ -35,6 +38,16 @@
                 haveLocation: false,
                 ourDistance: NaN,
                 haveSent: false
+            }
+        },
+        computed: {
+            inSinglePage() {
+                const position = this.$route.path
+                if (position === '/apply') {
+                    return true
+                } else {
+                    return false
+                }
             }
         },
         methods: {
