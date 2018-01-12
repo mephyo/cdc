@@ -1,16 +1,14 @@
 <template>
     <nav class="navigator" v-if="scenes !== 'Overtune'">
         <div class="navigator_content_wrapper" v-if="scenes === 'SingleGallery'">
-            <div class="navs" @click="goHome">
-                <div class="icon icon_left"></div>
+            <guider @click.native="goHome">
                 <div class="logo"></div>
-            </div>
+            </guider>
         </div>
         <div class="navigator_content_wrapper" v-if="scenes === 'SinglePhoto'">
-            <div class="navs" @click="goGallery">
-                <div class="icon icon_left"></div>
+            <guider @click.native="goGallery">
                 <div class="gallery-name">{{galleryName}}</div>
-            </div>
+            </guider>
             <div class="tools">
                 <!-- <div class="icon icon_back" @click="goPrevious" :class="{disabled : !havePrevious}"></div> -->
                 <!-- <div class="icon icon_forward" @click="goNext" :class="{disabled : !haveNext}"></div> -->
@@ -20,8 +18,13 @@
 </template>
 
 <script>
+    import Guider from "@/components/Guider";
+
     export default {
         name: "Navigator",
+        components: {
+            Guider
+        },
         props: {
             gallery: Object
         },
