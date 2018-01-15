@@ -98,6 +98,7 @@
                     let lon = position.coords.longitude;
                     getDistance(lon, lat, myLocation.longitude, myLocation.latitude)
                     that.haveLocation = true
+                    that.$store.dispatch("newLocation", position)
                 }
 
                 function geoError() {

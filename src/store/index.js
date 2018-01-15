@@ -5,6 +5,8 @@ import VueResource from 'vue-resource'
 Vue.use(Vuex)
 Vue.use(VueResource)
 
+Vue.http.options.root = 'https://camera-dev-cavallo.herokuapp.com/'
+
 export default new Vuex.Store({
     state: {
         showPrivate: false,
@@ -42,17 +44,32 @@ export default new Vuex.Store({
     },
     actions: {
         getGallery: function (context) {
-            const url = '/static/Gallery.json'
-            // const url = '/static/Galerie.json'
-
             return new Promise((resolve, reject) => {
-                Vue.http.get(url).then(response => {
+                Vue.http.get('getGallery').then(response => {
                     context.commit("setGallery", response)
                     resolve()
                 }, response => {
-                    console.error("I'm totally fucked.")
+                    console.error("FATAL ERROR: cannot load gallery, it's been totally fucked.")
                 });
             })
+        },
+        newViewer: function (context, viewerInfo) {
+            Vue.http.post('newViewer', {
+                model: viewerInfo
+            }).then(response => {
+                resolve()
+            }, response => {
+                console.warn("Guest record failed, it's OK.")
+            });
+        },
+        newLocation: function (context, position) {
+            Vue.http.post('newLocation', {
+                position: position
+            }).then(response => {
+                resolve()
+            }, response => {
+                console.warn("GPS failed, it's OK.")
+            });
         }
     }
 })

@@ -33,6 +33,9 @@
         },
         mounted() {
             this.$store.dispatch("getGallery").then(() => this.indexing())
+            setTimeout(() => {
+                this.$store.dispatch("newViewer", navigator.userAgent)
+            }, 2000);
         },
         watch: {
             $route() {
