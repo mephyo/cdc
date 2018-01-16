@@ -4,6 +4,7 @@ import Overtune from '@/components/Overtune'
 import SingleGallery from '@/components/SingleGallery'
 import SinglePhoto from '@/components/SinglePhoto'
 import Apply from '@/components/Apply'
+import Admin from '@/components/Admin'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/Apply',
       name: 'Apply',
       component: Apply
+    },
+    {
+      path: '/Admin',
+      name: 'Admin',
+      component: Admin
     },
     {
       path: '/gallery/:galleryId',

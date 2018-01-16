@@ -94,11 +94,14 @@
                 }
 
                 function geoSuccess(position) {
-                    let lat = position.coords.latitude;
-                    let lon = position.coords.longitude;
-                    getDistance(lon, lat, myLocation.longitude, myLocation.latitude)
+                    const yourLocation = {
+                        lat: position.coords.latitude,
+                        lon: position.coords.longitude
+                    };
+                    getDistance(yourLocation.lon, yourLocation.lat, myLocation.longitude, myLocation.latitude)
                     that.haveLocation = true
-                    that.$store.dispatch("newLocation", position)
+                    localStorage.setItem("lastLocation", JSON.stringify(yourLocation))
+                    that.$store.dispatch("newLocation", JSON.stringify(yourLocation))
                 }
 
                 function geoError() {

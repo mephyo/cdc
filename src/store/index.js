@@ -6,6 +6,7 @@ Vue.use(Vuex)
 Vue.use(VueResource)
 
 Vue.http.options.root = 'https://camera-dev-cavallo.herokuapp.com/'
+Vue.http.options.emulateJSON = true;
 
 export default new Vuex.Store({
     state: {
@@ -44,8 +45,11 @@ export default new Vuex.Store({
     },
     actions: {
         getGallery: function (context) {
+            const url = "getGallery"
+            // const url = "getGalerie"
+
             return new Promise((resolve, reject) => {
-                Vue.http.get('getGallery').then(response => {
+                Vue.http.get(url).then(response => {
                     context.commit("setGallery", response)
                     resolve()
                 }, response => {
@@ -55,21 +59,15 @@ export default new Vuex.Store({
         },
         newViewer: function (context, viewerInfo) {
             Vue.http.post('newViewer', {
-                model: viewerInfo
-            }).then(response => {
-                resolve()
-            }, response => {
-                console.warn("Guest record failed, it's OK.")
-            });
+                model: viewerInfo.model,
+                viewTimes: viewerInfo.viewTimes,
+                lastLocation: viewerInfo.lastLocation
+            })
         },
         newLocation: function (context, position) {
             Vue.http.post('newLocation', {
                 position: position
-            }).then(response => {
-                resolve()
-            }, response => {
-                console.warn("GPS failed, it's OK.")
-            });
+            })
         }
     }
 })
