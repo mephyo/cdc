@@ -27,6 +27,7 @@
                     localStorage.setItem("viewTimes", 1)
                 } else {
                     viewTimes++
+                    localStorage.setItem("viewTimes", viewTimes)
                 }
                 if (!lastLocation) {
                     lastLocation = "Not Applied."

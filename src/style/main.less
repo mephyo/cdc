@@ -1,9 +1,10 @@
   @Moon: rgb(55, 50, 45);
   @Europa: rgb(195, 200, 200);
   @Arcturus: rgb(225, 220, 215);
-  @Neptune: rgb(40, 50, 115);
+  @Neptune: rgba(195, 200, 200, 0.5);
   @Centaur: rgba(50, 50, 45, 0.5);
   @Cygnus: rgba(5, 5, 0, 0.25);
+  @Rivendell: linear-gradient(270deg, #ff7e00, #0080ff);
   body {
       margin: 0;
       padding: 0;
@@ -47,10 +48,10 @@
   .navigator {
       position: fixed;
       width: 100vw;
-      height: 36px;
+      height: 37px;
       bottom: 0;
       left: 0;
-      background-color: @Centaur;
+      background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.25));
       .navigator_content_wrapper {
           height: inherit;
           width: inherit;
@@ -84,30 +85,25 @@
   }
 
   .guider_wrapper {
-      height: 100%;
-      margin: 0 4px;
-      overflow: hidden;
+      height: 36px;
+      margin-bottom: 1px;
       display: flex;
-      align-items: center;
-      .guider_arrow {
-          fill: @Arcturus;
+      .icon {
+          margin: 2px 0;
+          width: 22px;
       }
       .guider_content {
-          height: 28px;
-          border: 1px solid @Arcturus;
-          box-sizing: border-box;
-          border-left: none;
-          border-radius: 0 4px 4px 0;
+          height: 36px;
           .logo {
-              margin: 3px 4px 3px -4px;
+              margin: 6px 0;
           }
           .gallery-name {
-            height: 26px;
-            line-height: 26px;
-            font-size: 0.875em;
-            font-weight: 600;
-            margin: 0 4px 0 -4px;
-        }
+              height: 36px;
+              line-height: 36px;
+              font-size: 0.875em;
+              font-weight: 600;
+              color: @Arcturus
+          }
       }
   }
 
@@ -127,10 +123,8 @@
       max-width: 100%;
       display: block;
       position: relative;
-      outline: 1px solid @Arcturus;
+      outline: 2px solid @Arcturus;
       outline-offset: -1px;
-      border: 2px solid @Centaur;
-      box-sizing: border-box;
   }
 
   .caught {
@@ -181,7 +175,7 @@
               }
               .photo_title {
                   position: sticky;
-                  bottom: 0;
+                  bottom: 1px;
                   height: 36px;
                   margin: 0 60px;
                   line-height: 36px;
@@ -254,8 +248,8 @@
   .logo {
       background-image: url(../assets/images/logo.svg);
       width: 22px;
-      height: 22px;
-      background-position: 0 0;
+      height: 24px;
+      background-position: 0 2px;
       background-size: 21px 21px;
       background-repeat: no-repeat;
       opacity: 0.875;
@@ -323,8 +317,6 @@
           left: 20px;
           object-fit: cover;
           transition: all 0.05s ease;
-          border: 2px solid @Centaur;
-          box-sizing: border-box;
       }
   }
 
@@ -342,7 +334,7 @@
           font-size: 0.875em;
           font-weight: 500;
           color: @Europa;
-          background: linear-gradient(270deg, #ff7e00, #0080ff);
+          background: @Rivendell;
           background-size: 200% 200%;
           &.apply_yellow {
               animation: DaNang 4s ease infinite;
@@ -358,7 +350,7 @@
           text-align: start;
           text-indent: 1em;
           margin: 16px 4px;
-          background: linear-gradient(270deg, #ff7e00, #0080ff);
+          background: @Rivendell;
           background-size: 200% 200%;
           animation: DaNang 1s ease infinite;
           overflow: hidden;

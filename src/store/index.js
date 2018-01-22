@@ -45,8 +45,11 @@ export default new Vuex.Store({
     },
     actions: {
         getGallery: function (context) {
-            const url = "getGallery"
-            // const url = "getGalerie"
+            let url = "/static/json/gallery.json"
+
+            if (process.env.NODE_ENV === 'development') {
+                url = '/static/json/galerie.json'
+            }
 
             return new Promise((resolve, reject) => {
                 Vue.http.get(url).then(response => {
