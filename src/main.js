@@ -8,6 +8,7 @@ import store from './store'
 import VueLazyload from 'vue-lazyload'
 import VueAgile from 'vue-agile'
 
+import 'ress'
 import './style/main.less'
 
 Vue.config.productionTip = false

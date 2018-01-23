@@ -13,6 +13,7 @@
       font-size: 1em;
       font-weight: 400;
       color: @Europa;
+      -webkit-tap-highlight-color: transparent;
   }
 
   h1,
@@ -209,42 +210,6 @@
       background-image: url(../assets/images/ic_keyboard_arrow_left_white_24px.svg);
   }
 
-  .icon_airplane {
-      background-image: url(../assets/images/airplane.svg);
-  }
-
-  .icon_heart {
-      background-image: url(../assets/images/heart.svg);
-  }
-
-  .icon_ghost {
-      background-image: url(../assets/images/ghost.svg);
-  }
-
-  .icon_cake {
-      background-image: url(../assets/images/cake-layered.svg);
-  }
-
-  .icon_iris {
-      background-image: url(../assets/images/camera-iris.svg);
-  }
-
-  .icon_cat {
-      background-image: url(../assets/images/cat.svg);
-  }
-
-  .icon_dna {
-      background-image: url(../assets/images/dna.svg);
-  }
-
-  .icon_duck {
-      background-image: url(../assets/images/duck.svg);
-  }
-
-  .icon_run {
-      background-image: url(../assets/images/run.svg);
-  }
-
   .logo {
       background-image: url(../assets/images/logo.svg);
       width: 22px;
@@ -395,14 +360,15 @@
               background-color: rgba(0, 0, 0, 0.25);
               transition: 0.125s ease;
               cursor: pointer;
-              .icon {
+              svg {
                   opacity: 0.5;
                   transition: inherit;
-                  margin: 28px;
+                  margin: 33px;
+                  fill: @Europa;
               }
               &:active {
                   background-color: rgba(0, 0, 0, 0.125);
-                  .icon {
+                  svg {
                       opacity: 0.25;
                   }
               }

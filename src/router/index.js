@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Overtune from '@/components/Overtune'
 import SingleGallery from '@/components/SingleGallery'
 import SinglePhoto from '@/components/SinglePhoto'
-import Apply from '@/components/Apply'
+import Agent from '@/components/Agent'
 import Admin from '@/components/Admin'
 
 Vue.use(Router)
@@ -17,8 +17,8 @@ export default new Router({
     },
     {
       path: '/Apply',
-      name: 'Apply',
-      component: Apply
+      name: 'Agent',
+      component: Agent
     },
     {
       path: '/Admin',
