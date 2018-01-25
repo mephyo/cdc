@@ -16,15 +16,7 @@
                 </template>
             </div>
         </div>
-        <a href="mailto:hergloves@gmail.com?subject='想要和你拍照'" class="apply_button apply_blue" v-if="haveApply" @click="sendMail">给我发邮件吧</a>
-        <div class="apply_memo" v-if="haveApply">
-            <p>请不要更改邮件标题，可能会影响自动回复</p>
-            <p v-if="!haveLocation">请在邮件里告诉我所在的城市</p>
-            <p v-if="haveSent">如果邮件客户端没有启动，请手动发送邮件到
-                <strong>hergloves@gmail.com</strong>
-            </p>
-            <p v-if="haveSent">自动回复将会即刻到达，如果没有收到，检查一下您收件箱的垃圾邮件。</p>
-        </div>
+        <a class="apply_button apply_blue" v-if="haveApply" @click="goApply">来拍照吧</a>
     </div>
 </template>
 
@@ -36,8 +28,7 @@
                 haveClicked: false,
                 haveApply: false,
                 haveLocation: false,
-                ourDistance: NaN,
-                haveSent: false
+                ourDistance: NaN
             }
         },
         computed: {
@@ -111,11 +102,10 @@
                 }
                 navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
             },
-            sendMail() {
-                setTimeout(() => {
-                    this.haveSent = true;
-                    scrollBottom();
-                }, 1000);
+            goApply() {
+                this.$router.push({
+                    path: "/Apply"
+                });
             }
         }
     };

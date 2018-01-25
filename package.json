@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "ress": "^1.2.2",
+    "normalize.css": "^7.0.0",
     "vue": "^2.5.2",
     "vue-agile": "^0.3.6",
     "vue-form-generator": "^2.2.0",

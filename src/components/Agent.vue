@@ -250,19 +250,19 @@
                         required: true,
                         values: function () {
                             return [{
-                                    id: "1",
+                                    id: "4",
                                     name: "最大"
                                 },
                                 {
-                                    id: "2",
+                                    id: "3",
                                     name: "较大"
                                 },
                                 {
-                                    id: "3",
+                                    id: "2",
                                     name: "较小"
                                 },
                                 {
-                                    id: "4",
+                                    id: "1",
                                     name: "最小"
                                 }
                             ]
