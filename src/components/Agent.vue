@@ -3,6 +3,16 @@
         <div class="panel-body">
             <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
         </div>
+        <dl>
+            <dt>Lingerie</dt>
+            <dd>I wanna be sexy enough without my significant other murdering me.</dd>
+            <dt>Artistic Nude</dt>
+            <dd>This could either be used in fashion where maybe a boob or two shows. Or an image shadowed or in black and white.</dd>
+            <dt>Erotic Nude</dt>
+            <dd>I'll stand there butt naked and say cheese.</dd>
+            <dt>Adult Nude</dt>
+            <dd>I'm a stripper looking to make extra cash.</dd>
+        </dl>
         <div class="submit_button" @click="submitData">提交</div>
     </div>
 </template>
@@ -35,7 +45,7 @@
                     styleMore: "",
                     cloth: ["nude", "underwear"],
                     clothMore: "",
-                    limit: "1",
+                    limit: "3",
                     copyright: "2",
                     contract: false
                 },
@@ -248,22 +258,23 @@
                         label: "尺度",
                         model: "limit",
                         required: true,
+                        hint: "See tips at bottom of this page",
                         values: function () {
                             return [{
                                     id: "4",
-                                    name: "最大"
+                                    name: "Adult Nude"
                                 },
                                 {
                                     id: "3",
-                                    name: "较大"
+                                    name: "Erotic Nude"
                                 },
                                 {
                                     id: "2",
-                                    name: "较小"
+                                    name: "Artistic Nude"
                                 },
                                 {
                                     id: "1",
-                                    name: "最小"
+                                    name: "Lingerie"
                                 }
                             ]
                         }
@@ -313,7 +324,7 @@
                 if (this.model.name === "") {
                     return
                 }
-                this.$http.post('newApplier', this.model).then(res=>{
+                this.$http.post('newApplier', this.model).then(res => {
                     alert("提交成功")
                     this.$router.push({
                         path: "/"
@@ -329,6 +340,8 @@
 <style lang="less">
     fieldset {
         border: 0;
+        margin: 0;
+        padding: 4px 4px 0;
     }
 
     .panel {
@@ -340,7 +353,7 @@
     }
 
     .panel-body {
-        padding: 8px;
+        padding: 4px 4px 0;
     }
 
     .field-checklist .wrapper {
@@ -358,5 +371,24 @@
         text-align: center;
         background-color: #0080ff;
         color: #fff;
+    }
+
+    dl {
+        margin: 0 4px 4px;
+        font-size: 0.75em;
+        background-color: #ddd;
+        padding: 4px;
+        border-radius: 4px;
+        dt {
+            font-weight: 600;
+            color: #333;
+            &:after {
+                content: ":"
+            }
+        }
+        dd {
+            color: #666;
+            margin: 4px;
+        }
     }
 </style>
