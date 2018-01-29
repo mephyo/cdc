@@ -3,6 +3,7 @@
         <img :style="robb" class="stark" :src="gallery[2]">
         <img :style="bran" class="stark" :src="gallery[1]">
         <img :style="rickon" class="stark" :src="gallery[0]">
+        <h3 :style="katherine" class="tully">{{name}}</h3>
     </div>
 </template>
 
@@ -10,7 +11,8 @@
     export default {
         name: "Stark",
         props: {
-            gallery: Array
+            gallery: Array,
+            name: String
         },
         data() {
             return {
@@ -29,9 +31,14 @@
                 }
             },
             rickon() {
-                let scale = this.revenge
                 return {
                     transform: "translateY(" + this.revenge * -4 + "px) translateZ(0)"
+                }
+            },
+            katherine() {
+                return {
+                    opacity: 0.75 - this.revenge,
+                    transform: "translateY(" + this.revenge * 4 + "px) translateZ(0)"
                 }
             }
         },

@@ -9,8 +9,7 @@
                 <ul class="gallery-list">
                     <li v-for="project in gallery" :key="project.codeName">
                         <router-link :to="{ name: 'SingleGallery', params: { galleryId: project.codeName }}">
-                            <stark :gallery="project.cover"></stark>
-                            <div class="title">{{project.name}}</div>
+                            <stark :gallery="project.cover" :name="project.name"></stark>
                         </router-link>
                     </li>
                 </ul>
