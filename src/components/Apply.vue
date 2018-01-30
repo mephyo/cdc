@@ -58,7 +58,7 @@
                 }
                 if (!navigator.geolocation) {
                     animiIsGreat()
-                    console.log('您的浏览器不支持地理位置')
+                    console.warn('您的浏览器不支持地理位置')
                     return;
                 }
                 const myLocation = {
@@ -97,7 +97,7 @@
 
                 function geoError() {
                     animiIsGreat()
-                    console.log('无法获取您的位置')
+                    console.warn('无法获取您的位置')
                     return;
                 }
                 navigator.geolocation.getCurrentPosition(geoSuccess, geoError);

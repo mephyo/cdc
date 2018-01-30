@@ -3,16 +3,6 @@
         <div class="panel-body">
             <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
         </div>
-        <dl>
-            <dt>Lingerie</dt>
-            <dd>I wanna be sexy enough without my significant other murdering me.</dd>
-            <dt>Artistic Nude</dt>
-            <dd>This could either be used in fashion where maybe a boob or two shows. Or an image shadowed or in black and white.</dd>
-            <dt>Erotic Nude</dt>
-            <dd>I'll stand there butt naked and say cheese.</dd>
-            <dt>Adult Nude</dt>
-            <dd>I'm a stripper looking to make extra cash.</dd>
-        </dl>
         <div class="submit_button" @click="submitData">提交</div>
     </div>
 </template>
@@ -41,10 +31,13 @@
                     whereToSee: "",
                     place: ["hotel"],
                     placeMore: "",
+                    time: ["afternoon"],
                     style: "myIdea",
                     styleMore: "",
                     cloth: ["nude", "underwear"],
                     clothMore: "",
+                    emotion: "good",
+                    pose: "good",
                     limit: "3",
                     copyright: "2",
                     contract: false
@@ -202,6 +195,26 @@
                         model: "placeMore",
                         placeholder: "你有什么特别的地点？",
                     }, {
+                        type: "checklist",
+                        label: "拍摄时间",
+                        model: "time",
+                        multi: true,
+                        required: true,
+                        multiSelect: true,
+                        values: [{
+                                value: "morning",
+                                name: "上午"
+                            },
+                            {
+                                value: "afternoon",
+                                name: "下午"
+                            },
+                            {
+                                value: "evening",
+                                name: "晚上"
+                            }
+                        ]
+                    }, {
                         type: "select",
                         label: "拍摄风格",
                         model: "style",
@@ -229,7 +242,6 @@
                         label: "服装",
                         model: "cloth",
                         multi: true,
-                        required: true,
                         multiSelect: true,
                         values: [{
                                 value: "nude",
@@ -255,26 +267,67 @@
                         }
                     }, {
                         type: "select",
+                        label: "你拍照时的表情",
+                        model: "emotion",
+                        values: function () {
+                            return [{
+                                    id: "excellent",
+                                    name: "我很会做表情"
+                                },
+                                {
+                                    id: "good",
+                                    name: "我拍照只有一种表情"
+                                },
+                                {
+                                    id: "poor",
+                                    name: "我不会做表情"
+                                },
+                                {
+                                    id: "none",
+                                    name: "我不拍脸"
+                                }
+                            ]
+                        }
+                    }, {
+                        type: "select",
+                        label: "你拍照时的姿势",
+                        model: "pose",
+                        values: function () {
+                            return [{
+                                    id: "excellent",
+                                    name: "我很会摆 pose"
+                                },
+                                {
+                                    id: "good",
+                                    name: "我会一点"
+                                },
+                                {
+                                    id: "poor",
+                                    name: "请教教我"
+                                }
+                            ]
+                        }
+                    }, {
+                        type: "select",
                         label: "尺度",
                         model: "limit",
-                        required: true,
-                        hint: "See tips at bottom of this page",
+                        hint: "选3是要加钱的",
                         values: function () {
                             return [{
                                     id: "4",
-                                    name: "Adult Nude"
+                                    name: "A片那种"
                                 },
                                 {
                                     id: "3",
-                                    name: "Erotic Nude"
+                                    name: "有欲望但不色情"
                                 },
                                 {
                                     id: "2",
-                                    name: "Artistic Nude"
+                                    name: "没有欲望的美好肉体"
                                 },
                                 {
                                     id: "1",
-                                    name: "Lingerie"
+                                    name: "不穿衣服的性冷淡"
                                 }
                             ]
                         }
@@ -308,7 +361,7 @@
                         }
                     }, {
                         type: "checkbox",
-                        label: "需要签订合同",
+                        label: "需要签订隐私合同（自己打印）",
                         model: "contract"
                     }]
                 },
@@ -348,7 +401,6 @@
         margin: 8px 8px 38px;
         background-color: #fff;
         border-radius: 4px;
-        border: 1px solid #fff;
         overflow: hidden;
     }
 
@@ -371,24 +423,5 @@
         text-align: center;
         background-color: #0080ff;
         color: #fff;
-    }
-
-    dl {
-        margin: 0 4px 4px;
-        font-size: 0.75em;
-        background-color: #ddd;
-        padding: 4px;
-        border-radius: 4px;
-        dt {
-            font-weight: 600;
-            color: #333;
-            &:after {
-                content: ":"
-            }
-        }
-        dd {
-            color: #666;
-            margin: 4px;
-        }
     }
 </style>

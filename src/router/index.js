@@ -4,6 +4,7 @@ import Overtune from '@/components/Overtune'
 import SingleGallery from '@/components/SingleGallery'
 import SinglePhoto from '@/components/SinglePhoto'
 import Agent from '@/components/Agent'
+import Boncka from '@/components/Boncka'
 import Admin from '@/components/Admin'
 
 Vue.use(Router)
@@ -17,8 +18,8 @@ export default new Router({
     },
     {
       path: '/Apply',
-      name: 'Agent',
-      component: Agent
+      name: 'Boncka',
+      component: Boncka
     },
     {
       path: '/Admin',
