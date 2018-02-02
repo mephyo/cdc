@@ -3,7 +3,7 @@
         <ul class="boncka_list">
             <spetsnaz v-for="(value, key) in model" :key="key" :q="key" :value="value" :schema="schema" @input="callMe" />
         </ul>
-        <div class="submit_button" @click="submitData">提交</div>
+        <div class="submit_button" @click="submitData">{{submitLabel}}</div>
     </div>
 </template>
 
@@ -16,6 +16,7 @@
         },
         data() {
             return {
+                submitLabel: "提交",
                 model: {
                     call: "",
                     age: "",
@@ -25,14 +26,15 @@
                     place: ["hotel"],
                     placeMore: "",
                     time: ["afternoon"],
-                    style: "myIdea",
-                    styleMore: "",
                     cloth: ["nude", "underwear"],
                     clothMore: "",
+                    style: "myIdea",
+                    styleMore: "",
                     emotion: "excellent",
                     pose: "good",
                     limit: "3",
                     copyright: "2",
+                    note: "",
                     contract: false
                 },
                 schema: [{
@@ -46,22 +48,23 @@
                     inputType: "number",
                     label: "年龄",
                     model: "age",
-                    min: 14,
-                    max: 100,
                     placeholder: "可不填",
                 }, {
                     type: "select",
                     label: "性别",
                     model: "gender",
                     values: [{
+                            icon: "female",
                             id: "female",
                             name: "女"
                         },
                         {
+                            icon: "male",
                             id: "male",
                             name: "男"
                         },
                         {
+                            icon: "unknown",
                             id: "futa",
                             name: "保密"
                         }
@@ -84,23 +87,28 @@
                     model: "place",
                     values: [{
                             id: "outdoor",
-                            name: "野外"
+                            name: "室外",
+                            icon: "forest"
                         },
                         {
                             id: "public",
-                            name: "公共场所"
+                            name: "公共场所",
+                            icon: "bench"
                         },
                         {
                             id: "hotel",
-                            name: "酒店"
+                            name: "酒店",
+                            icon: "bed"
                         },
                         {
                             id: "home",
-                            name: "住处"
+                            name: "住处",
+                            icon: "sofa"
                         },
                         {
                             id: "other",
-                            name: "其他"
+                            name: "其他",
+                            icon: "other"
                         }
                     ]
                 }, {
@@ -114,14 +122,21 @@
                     label: "拍摄时间",
                     model: "time",
                     values: [{
+                            icon: "dawn",
+                            id: "dawn",
+                            name: "凌晨"
+                        }, {
+                            icon: "am",
                             id: "morning",
                             name: "上午"
                         },
                         {
+                            icon: "pm",
                             id: "afternoon",
                             name: "下午"
                         },
                         {
+                            icon: "evening",
                             id: "evening",
                             name: "晚上"
                         }
@@ -135,7 +150,7 @@
                         name: "我有特别的想法"
                     }, {
                         id: "yourIdea",
-                        name: "按你的一贯的风格来"
+                        name: "全部按你的风格来"
                     }]
                 }, {
                     type: "input",
@@ -154,6 +169,10 @@
                         {
                             id: "underwear",
                             name: "内衣"
+                        },
+                        {
+                            id: "casual",
+                            name: "常服"
                         },
                         {
                             id: "other",
@@ -208,10 +227,9 @@
                     type: "select",
                     label: "尺度",
                     model: "limit",
-                    hint: "选3是要加钱的",
                     values: [{
                             id: "4",
-                            name: "A片那种"
+                            name: "色情又变态"
                         },
                         {
                             id: "3",
@@ -230,44 +248,58 @@
                     type: "select",
                     label: "版权",
                     model: "copyright",
-                    required: true,
                     values: [{
+                            icon: "banned",
                             id: "1",
                             name: "禁止在任何地方发布"
                         },
                         {
+                            icon: "siteprv",
                             id: "2",
                             name: "可以在我的网站发布不露脸的照片"
                         },
                         {
+                            icon: "siteall",
                             id: "3",
                             name: "可以在我的网站发布所有照片"
                         },
                         {
+                            icon: "universalprv",
                             id: "4",
                             name: "可以在我的网站和其他平台发布不露脸的照片"
                         },
                         {
+                            icon: "universalall",
                             id: "5",
                             name: "可以在我的网站和其他平台发布所有照片"
                         }
                     ]
                 }, {
+                    type: "input",
+                    inputType: "text",
+                    label: "备注",
+                    model: "note",
+                    placeholder: "还有什么没有提到的？",
+                }, {
                     type: "checkbox",
-                    label: "需要签订隐私合同（自己打印）",
+                    label: "需要签订隐私合同",
+                    hint: "自己打印",
                     model: "contract"
                 }]
             }
         },
         methods: {
             submitData() {
+                this.submitLabel = "稍等"
                 this.$http.post('newApplier', this.model).then(res => {
+                    this.submitLabel = "提交成功"
                     alert("提交成功")
                     this.$router.push({
                         path: "/"
                     });
                 }, res => {
-                    alert("FATAL ERROR")
+                    alert("FATAL ERROR: 服务器可能挂了")
+                    this.submitLabel = "服务器可能挂了"
                 })
             },
             callMe(q, value) {
@@ -282,12 +314,14 @@
         background-color: #fafafa;
         margin: 8px 8px 36px 8px;
         font-size: 0.875em;
+        border: 1px solid #fafafa;
     }
+
     .submit_button {
         text-align: center;
         height: 44px;
         line-height: 44px;
-        background-color: #0080ff;
-        color: #fff;
+        background-color: #37322d;
+        color: #fafafa;
     }
 </style>

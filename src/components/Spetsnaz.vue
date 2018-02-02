@@ -12,14 +12,16 @@
         <div class="spetsnaz_field" v-if="model.type==='select'">
             <div class="spetsnaz_boxy">
                 <div v-for="v in model.values" :key="v.id" class="spetsnaz_box" :class="{selected: v.selected}" @click="selectOne(v.id)">
-                    <span>{{v.name}}</span>
+                    <div v-if="v.icon" class="icon" :class="'icon_' + v.icon"></div>
+                    <div>{{v.name}}</div>
                 </div>
             </div>
         </div>
         <div class="spetsnaz_field" v-if="model.type==='checklist'">
             <div class="spetsnaz_boxz">
                 <div v-for="v in model.values" :key="v.id" class="spetsnaz_box" :class="{selected: v.selected}" @click="checkOne(v.id)">
-                    <span>{{v.name}}</span>
+                    <div v-if="v.icon" class="icon" :class="'icon_' + v.icon"></div>
+                    <div>{{v.name}}</div>
                 </div>
             </div>
         </div>
@@ -156,6 +158,7 @@
             .spetsnaz_input {
                 outline: none;
                 border: none;
+                border-radius: 0;
                 border-bottom: 1px solid #ccc;
                 background-color: transparent;
                 display: block;
@@ -163,8 +166,9 @@
                 box-sizing: border-box;
                 height: 30px;
                 line-height: 30px;
+                color: #37322d;
                 &:focus {
-                    border-bottom: 1px solid #0080ff;
+                    border-bottom: 1px solid #37322d;
                 }
             }
         }
@@ -178,10 +182,23 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
             &.selected {
-                background-color: #0080ff;
-                border-color: #0080ff;
-                color: #fff;
+                background-color: #37322d;
+                border-color: #37322d;
+                color: #fafafa;
+                .icon {
+                    opacity: 1;
+                    filter: invert(100%);
+                }
+            }
+            .icon {
+                opacity: 0.5;
+                height: 24px;
+                width: 24px;
+                margin: 0 4px 0 -4px;
+                flex-shrink: 0;
             }
         }
 
@@ -210,7 +227,7 @@
             box-sizing: border-box;
             svg {
                 margin: 2px;
-                fill: #0080ff;
+                fill: #37322d;
             }
         }
     }

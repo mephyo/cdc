@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Overtune from '@/components/Overtune'
 import SingleGallery from '@/components/SingleGallery'
 import SinglePhoto from '@/components/SinglePhoto'
-import Agent from '@/components/Agent'
 import Boncka from '@/components/Boncka'
 import Admin from '@/components/Admin'
 
