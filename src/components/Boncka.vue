@@ -322,15 +322,15 @@
                     model: "coupleGender",
                     values: [{
                             id: "couple",
-                            name: "男女"
+                            name: "男 + 女"
                         },
                         {
                             id: "les",
-                            name: "女女"
+                            name: "女 + 女"
                         },
                         {
                             id: "gay",
-                            name: "男男"
+                            name: "男 + 男"
                         },
                         {
                             id: "triple",
