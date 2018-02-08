@@ -11,7 +11,6 @@ Vue.http.options.emulateJSON = true;
 export default new Vuex.Store({
     state: {
         showPrivate: false,
-        onlyForLisa: false,
         hackMode: false,
         gallery: [],
         nowGalleryIndex: 0,
@@ -23,9 +22,6 @@ export default new Vuex.Store({
         getMeOut: function (state) {
             state.showPrivate = true
         },
-        lisaIsWatching: function (state) {
-            state.onlyForLisa = true
-        },
         hackModeEnabled: function (state) {
             state.hackMode = true
         },
@@ -36,12 +32,7 @@ export default new Vuex.Store({
             const galleryIndex = state.gallery.map(gallery => gallery.codeName).indexOf(galleryId)
             state.nowGalleryIndex = galleryIndex
             state.nowGallery = state.gallery[galleryIndex]
-        },
-        changePhoto: function (state, photoId) {
-            const photoIndex = state.nowGallery.photos.map(photo => photo.codeName).indexOf(photoId)
-            state.nowPhotoIndex = photoIndex
-            state.nowPhoto = state.nowGallery.photos[photoIndex]
-        },
+        }
     },
     actions: {
         getGallery: function (context) {

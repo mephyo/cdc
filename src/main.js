@@ -5,21 +5,9 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import VueLazyload from 'vue-lazyload'
-import VueAgile from 'vue-agile'
-
-import 'normalize.css'
 import './style/main.less'
 
 Vue.config.productionTip = false
-
-Vue.use(VueLazyload, {
-    preLoad: 1.5,
-    attempt: 2,
-    listenEvents: ['scroll']
-})
-
-Vue.use(VueAgile)
 
 /* eslint-disable no-new */
 new Vue({

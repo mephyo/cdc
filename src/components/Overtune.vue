@@ -4,7 +4,7 @@
             <div v-if="!locked">
                 <div class="logo main-logo" :class="{invert: hackMode}" @click="launchHackMode"></div>
                 <h1>Camera del Cavallo
-                    <span v-if="noLimits || noSecrets"> 🔞</span>
+                    <span v-if="noLimits"> 🔞</span>
                 </h1>
                 <ul class="gallery-list">
                     <li v-for="project in gallery" :key="project.codeName">
@@ -43,19 +43,8 @@
             noLimits() {
                 return this.$store.state.showPrivate;
             },
-            noSecrets() {
-                return this.$store.state.onlyForLisa;
-            },
             hackMode() {
                 return this.$store.state.hackMode;
-            },
-            secretFilter() {
-                function checkPrivate(project) {
-                    if (project.secret === false) {
-                        return project
-                    }
-                }
-                return this.$store.state.gallery.filter(checkPrivate);
             },
             badFilter() {
                 return this.$store.state.gallery;
@@ -79,9 +68,6 @@
                 if (edgeOfLaw === '/nlm') {
                     this.$store.commit("getMeOut")
                     this.gallery = this.badFilter
-                } else if (edgeOfLaw === '/18x') {
-                    this.$store.commit("lisaIsWatching")
-                    this.gallery = this.secretFilter
                 } else {
                     this.locked = false
                     this.gallery = this.goodFilter

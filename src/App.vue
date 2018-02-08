@@ -46,12 +46,8 @@
             indexing() {
                 this.galleryLoaded = true
                 let galleryId = this.$route.params.galleryId;
-                let photoId = this.$route.params.photoId;
                 if (galleryId) {
                     this.$store.commit("changeGallery", galleryId);
-                }
-                if (photoId) {
-                    this.$store.commit("changePhoto", photoId);
                 }
             }
         },

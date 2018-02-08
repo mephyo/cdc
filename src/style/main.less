@@ -68,19 +68,8 @@
               margin: 2px;
               cursor: pointer;
           }
-          .tools {
-              display: flex;
-              justify-content: space-around;
-              height: 32px;
-              width: 50%;
-              margin: 2px;
-          }
           .icon {
               cursor: pointer;
-          }
-          .disabled {
-              opacity: 0.125;
-              cursor: not-allowed;
           }
       }
   }
@@ -98,13 +87,6 @@
           .logo {
               margin: 6px 0;
           }
-          .gallery-name {
-              height: 36px;
-              line-height: 36px;
-              font-size: 0.875em;
-              font-weight: 600;
-              color: @Arcturus
-          }
       }
   }
 
@@ -114,14 +96,6 @@
       }
   }
 
-  .photo {
-      max-width: 100%;
-      display: block;
-      position: relative;
-      outline: 2px solid @Arcturus;
-      outline-offset: -1px;
-  }
-
   .caught {
       position: absolute;
       top: 0;
@@ -129,32 +103,6 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-  }
-
-  .single_photo {
-      position: fixed;
-      height: 100vh;
-      width: 100vw;
-      top: 0;
-      left: 0;
-      text-align: center;
-      overflow: hidden;
-      .single_slide {
-          position: relative;
-          .photo_wrapper {
-              position: relative;
-              margin: 16px;
-              padding-bottom: 36px;
-              .photo {
-                  margin: 0 auto;
-                  box-shadow: 0 16px 32px @Cygnus;
-                  max-height: ~"calc(100vh - 68px)";
-              }
-          }
-          p {
-              margin: 8px 0;
-          }
-      }
   }
 
   .single-gallery {
@@ -167,6 +115,11 @@
               .photo {
                   margin: 8px auto;
                   box-shadow: 0 4px 8px @Centaur;
+                  max-width: 100%;
+                  display: block;
+                  position: relative;
+                  outline: 2px solid @Arcturus;
+                  outline-offset: -1px;
               }
               .photo_title {
                   position: sticky;
@@ -234,42 +187,6 @@
 
   .icon_unknown {
       background-image: url(../assets/images/icon_unknown.svg);
-  }
-
-  .icon_banned {
-      background-image: url(../assets/images/icon_banned.svg);
-  }
-
-  .icon_siteprv {
-      background-image: url(../assets/images/icon_siteprv.svg);
-  }
-
-  .icon_siteall {
-      background-image: url(../assets/images/icon_siteall.svg);
-  }
-
-  .icon_universalprv {
-    background-image: url(../assets/images/icon_universalprv.svg);
-  }
-
-  .icon_universalall {
-    background-image: url(../assets/images/icon_universalall.svg);
-  }
-
-  .icon_dawn {
-    background-image: url(../assets/images/icon_dawn.svg);
-  }
-
-  .icon_am {
-    background-image: url(../assets/images/icon_am.svg);
-  }
-
-  .icon_pm {
-    background-image: url(../assets/images/icon_pm.svg);
-  }
-
-  .icon_evening {
-    background-image: url(../assets/images/icon_evening.svg);
   }
 
   .logo {
@@ -449,6 +366,114 @@
                       opacity: 0.25;
                   }
               }
+          }
+      }
+  }
+
+  .boncka {
+      background-color: #fafafa;
+      margin: 8px 8px 36px 8px;
+      font-size: 0.875em;
+      border: 1px solid #fafafa;
+      .submit_button {
+          text-align: center;
+          height: 44px;
+          line-height: 44px;
+          background-color: #37322d;
+          color: #fafafa;
+      }
+  }
+
+  .spetsnaz {
+      color: #333;
+      margin: 8px 0;
+      overflow: hidden;
+      .spetsnaz_head {
+          margin: 8px 8px 0 8px;
+          height: 30px;
+          line-height: 30px;
+          .spetsnaz_label {
+              color: #666;
+          }
+          .spetsnaz_hint {
+              color: #999;
+          }
+      }
+      .spetsnaz_field {
+          margin: 0 8px 8px 8px;
+      }
+      .spetsnaz_inputz {
+          margin: 4px;
+          .spetsnaz_input {
+              outline: none;
+              border: none;
+              border-radius: 0;
+              border-bottom: 1px solid #ccc;
+              background-color: transparent;
+              display: block;
+              width: 100%;
+              box-sizing: border-box;
+              height: 30px;
+              line-height: 30px;
+              color: #37322d;
+              &:focus {
+                  border-bottom: 1px solid #37322d;
+              }
+          }
+      }
+      .spetsnaz_box {
+          margin: 8px;
+          padding: 0 8px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          color: #999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: flex;
+          align-items: center;
+          &.selected {
+              background-color: #37322d;
+              border-color: #37322d;
+              color: #fafafa;
+              .icon {
+                  opacity: 1;
+                  filter: invert(100%);
+              }
+          }
+          .icon {
+              opacity: 0.5;
+              height: 24px;
+              width: 24px;
+              margin: 0 4px 0 -4px;
+              flex-shrink: 0;
+          }
+      }
+      .spetsnaz_boxz {
+          display: flex;
+          flex-wrap: wrap;
+          .spetsnaz_box {
+              height: 30px;
+              line-height: 30px;
+          }
+      }
+      .spetsnaz_boxy {
+          display: flex;
+          flex-direction: column;
+          .spetsnaz_box {
+              height: 36px;
+              line-height: 36px;
+          }
+      }
+      .spetsnaz_checker {
+          height: 30px;
+          width: 30px;
+          margin: 8px;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+          svg {
+              margin: 2px;
+              fill: #37322d;
           }
       }
   }
