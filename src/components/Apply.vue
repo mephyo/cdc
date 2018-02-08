@@ -1,19 +1,20 @@
 <template>
-    <div class="apply_wrapper">
+    <div class="apply_wrapper" lang="zh-CN">
         <a class="apply_button apply_yellow" v-if="!haveApply" @click="wishYouWereHere" :class="{'apply_crazy': haveClicked}">
-            <span v-if="!haveClicked">
-                <template v-if="inSinglePage">点我</template>
-                <template v-else>我也想拍</template>
-            </span>
+            <span v-if="!haveClicked">我也想拍</span>
             <span v-else>…稍等…</span>
         </a>
         <div class="apply_content" v-if="haveApply">
             <div class="apply_content_inner">
                 <p>谢谢你喜欢我的照片，我也很想拍你哦。</p>
                 <template v-if="haveLocation">
-                    <p v-if="ourDistance < 200">我可以来你的城市找你拍照。</p>
+                    <p v-if="ourDistance < 200">我们之间的距离很近，我可以来你找你拍照。</p>
                     <p v-else>我可以给你拍照，但是你必须来苏州找我。</p>
                 </template>
+                <div class="show_introduction" v-if="!showIntroduction" @click="showIntroduction = true">
+                    <span>在与我联系之前，或许你可以先了解一下我</span>
+                </div>
+                <introduction v-else></introduction>
             </div>
         </div>
         <a class="apply_button apply_blue" v-if="haveApply" @click="goApply">来拍照吧</a>
@@ -21,24 +22,19 @@
 </template>
 
 <script>
+    import Introduction from "@/components/Introduction";
     export default {
         name: "Apply",
+        components: {
+            Introduction
+        },
         data() {
             return {
+                showIntroduction: false,
                 haveClicked: false,
                 haveApply: false,
                 haveLocation: false,
                 ourDistance: NaN
-            }
-        },
-        computed: {
-            inSinglePage() {
-                const position = this.$route.path
-                if (position === '/apply') {
-                    return true
-                } else {
-                    return false
-                }
             }
         },
         methods: {

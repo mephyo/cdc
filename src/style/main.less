@@ -306,8 +306,7 @@
           }
       }
       .apply_content {
-          text-align: start;
-          text-indent: 1em;
+          text-align: center;
           margin: 16px 4px;
           background: @Rivendell;
           background-size: 200% 200%;
@@ -319,14 +318,15 @@
               padding: 8px;
               background-color: @Moon;
               border-radius: 3px;
-          }
-      }
-      .apply_memo {
-          p {
-              margin: 0;
-              line-height: 1.5;
-              font-size: 0.75em;
-              color: @Europa;
+              .show_introduction {
+                  font-size: 0.75em;
+                  white-space: nowrap;
+                  height: 30px;
+                  line-height: 30px;
+                  border-radius: 4px;
+                  background-color: @Europa;
+                  color: @Moon;
+              }
           }
       }
   }
@@ -374,13 +374,13 @@
       background-color: #fafafa;
       margin: 8px 8px 36px 8px;
       font-size: 0.875em;
-      border: 1px solid #fafafa;
+      border: 1px solid @Arcturus;
       .submit_button {
           text-align: center;
           height: 44px;
           line-height: 44px;
-          background-color: #37322d;
-          color: #fafafa;
+          background-color: @Moon;
+          color: @Arcturus;
       }
   }
 
@@ -408,16 +408,16 @@
               outline: none;
               border: none;
               border-radius: 0;
-              border-bottom: 1px solid #ccc;
+              border-bottom: 1px solid @Neptune;
               background-color: transparent;
               display: block;
               width: 100%;
               box-sizing: border-box;
               height: 30px;
               line-height: 30px;
-              color: #37322d;
+              color: @Moon;
               &:focus {
-                  border-bottom: 1px solid #37322d;
+                  border-bottom: 1px solid @Moon;
               }
           }
       }
@@ -425,7 +425,7 @@
           margin: 8px;
           padding: 0 8px;
           box-sizing: border-box;
-          border: 1px solid #ccc;
+          border: 1px solid @Neptune;
           color: #999;
           white-space: nowrap;
           overflow: hidden;
@@ -433,9 +433,9 @@
           display: flex;
           align-items: center;
           &.selected {
-              background-color: #37322d;
-              border-color: #37322d;
-              color: #fafafa;
+              background-color: @Moon;
+              border-color: @Moon;
+              color: @Arcturus;
               .icon {
                   opacity: 1;
                   filter: invert(100%);
@@ -469,11 +469,11 @@
           height: 30px;
           width: 30px;
           margin: 8px;
-          border: 1px solid #ccc;
+          border: 1px solid @Neptune;
           box-sizing: border-box;
           svg {
               margin: 2px;
-              fill: #37322d;
+              fill: @Moon;
           }
       }
   }
