@@ -8,7 +8,8 @@
             <div class="apply_content_inner">
                 <p>谢谢你喜欢我的照片，我也很想拍你哦。</p>
                 <template v-if="haveLocation">
-                    <p v-if="ourDistance < 200">我们之间的距离很近，我可以来你找你拍照。</p>
+                    <p v-if="ourDistance < 50">我们之间的距离近到不可思议，请务必马上来找我拍照。</p>
+                    <p v-else-if="ourDistance < 200">我们之间的距离很近，我可以来找你拍照。</p>
                     <p v-else>我可以给你拍照，但是你必须来苏州找我。</p>
                 </template>
                 <div class="show_introduction" v-if="!showIntroduction" @click="showIntroduction = true">

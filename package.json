@@ -1,6 +1,6 @@
 {
     "name": "camera-del-cavallo",
-    "version": "1.0.1",
+    "version": "47.2.5",
     "description": "mephyo's dirty playground",
     "author": "mephyo <hergloves@gmail.com>",
     "private": true,
@@ -59,7 +59,7 @@
         "last 2 Chrome versions",
         "last 2 Safari versions",
         "last 2 Edge versions",
-        "last 2 Android versions",
+        "last 3 Android versions",
         "last 2 iOS versions"
     ]
 }
