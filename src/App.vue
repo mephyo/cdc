@@ -54,6 +54,7 @@
         mounted() {
             this.$store.dispatch("getGallery").then(() => this.indexing())
             this.identifier()
+            console.log('%c开发者，如果您要保存图片，请仅用于个人欣赏，谢谢。','font-size: 16px;');
         },
         watch: {
             $route() {

@@ -26,7 +26,17 @@ export default new Vuex.Store({
             state.hackMode = true
         },
         setGallery: function (state, gallery) {
-            state.gallery = gallery.body.gallery.reverse()
+            state.gallery = gallery
+        },
+        addFavourite: function (state, favourites) {
+            if (state.gallery[0].codeName === "favourites") {
+                state.gallery[0] = favourites
+            } else {
+                state.gallery.unshift(favourites)
+            }
+        },
+        removeFavourite: function (state) {
+            state.gallery.shift()
         },
         changeGallery: function (state, galleryId) {
             const galleryIndex = state.gallery.map(gallery => gallery.codeName).indexOf(galleryId)
@@ -44,7 +54,7 @@ export default new Vuex.Store({
 
             return new Promise((resolve, reject) => {
                 Vue.http.get(url).then(response => {
-                    context.commit("setGallery", response)
+                    context.commit("setGallery", response.body.gallery.reverse())
                     resolve()
                 }, response => {
                     console.error("FATAL ERROR: cannot load gallery, it's been totally fucked.")

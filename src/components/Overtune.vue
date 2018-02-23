@@ -83,10 +83,47 @@
                 } else {
                     this.log++
                 }
+            },
+            remix() {
+                const likedPhotos = JSON.parse(localStorage.getItem("likedPhotos"))
+                if (likedPhotos && likedPhotos.length) {
+                    let favourites = {
+                        "name": "❤",
+                        "codeName": "favourites",
+                        "cover": [],
+                        "private": false,
+                        "photos": []
+                    }
+                    likedPhotos.forEach(like => {
+                        this.gallery.forEach(g => {
+                            if (g.codeName !== "favourites") {
+                                g.photos.forEach(p => {
+                                    if (p.codeName === like) {
+                                        favourites.photos.unshift(p)
+                                        favourites.cover.unshift(p.src)
+                                    }
+                                })
+                            }
+                        })
+                    });
+                    if (this.gallery[0].codeName === "favourites") {
+                        this.gallery[0] = favourites
+                    } else {
+                        this.gallery.unshift(favourites)
+                    }
+                    this.$store.commit("addFavourite", favourites)
+                } else {
+                    if (this.gallery[0].codeName === "favourites") {
+                        this.gallery.shift()
+                        this.$store.commit("removeFavourite")
+                    }
+                }
             }
         },
         mounted() {
             this.rebelion();
+            this.remix();
+            window.scrollTo(0, 0)
         }
     };
 </script>
