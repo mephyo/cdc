@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Overtune from '@/components/Overtune'
 import SingleGallery from '@/components/SingleGallery'
 import Boncka from '@/components/Boncka'
+import Copyright from '@/components/Copyright'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
             path: '/gallery/:galleryId',
             name: 'SingleGallery',
             component: SingleGallery
-        }
+        },
+        {
+            path: '/copyright',
+            name: 'Copyright',
+            component: Copyright
+        },
     ]
 })

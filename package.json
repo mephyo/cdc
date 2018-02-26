@@ -1,7 +1,7 @@
 {
     "name": "camera-del-cavallo",
-    "version": "47.3.1",
-    "description": "mephyo's dirty playground",
+    "version": "47.3.3",
+    "description": "A photography project",
     "author": "mephyo <hergloves@gmail.com>",
     "private": true,
     "scripts": {

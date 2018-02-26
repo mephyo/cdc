@@ -1,9 +1,9 @@
 <template>
-    <div class="ww_wrapper" @click="showOff">
+    <footer class="ww_wrapper" @click="showOff">
         <div class="ww_text">Wirbel</div>
         <div class="ww_logo" :class="{rotating: hobbit}"></div>
         <div class="ww_text">Wind</div>
-    </div>
+    </footer>
 </template>
 
 <script>

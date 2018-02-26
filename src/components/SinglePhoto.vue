@@ -1,7 +1,7 @@
 <template>
     <li class="single-photo">
         <img class="photo" :src="photo.src" :class="{untouchable: !hackMode}">
-        <div class="scrim" @dblclick="likeMe"></div>
+        <div class="scrim" @dblclick="likeMe" @click="dblTap()" v-if="!hackMode"></div>
         <div class="photo_toolbar">
             <div class="photo_index">{{index + 1 + " / " + total}}</div>
             <div class="photo_like" @click="likeMe">
@@ -23,7 +23,8 @@
         },
         data() {
             return {
-                isLiked: false
+                isLiked: false,
+                timer: null
             }
         },
         computed: {
@@ -50,6 +51,18 @@
                         likedPhotos.push(this.photo.codeName)
                         localStorage.setItem("likedPhotos", JSON.stringify(likedPhotos))
                     }
+                }
+            },
+            dblTap() {
+                if (this.timer == null) {
+                    this.timer = setTimeout(function () {
+                        this.timer = null;
+                    }, 500)
+                } else {
+                    clearTimeout(this.timer);
+                    this.timer = null;
+                    this.likeMe()
+
                 }
             }
         },

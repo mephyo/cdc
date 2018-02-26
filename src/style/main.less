@@ -59,18 +59,6 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          .navs {
-              display: flex;
-              justify-content: flex-start;
-              height: 32px;
-              max-width: 50%;
-              overflow: hidden;
-              margin: 2px;
-              cursor: pointer;
-          }
-          .icon {
-              cursor: pointer;
-          }
       }
   }
 
@@ -154,8 +142,10 @@
                   fill: transparent;
                   stroke: @Arcturus;
                   stroke-width: 1px;
+                  transition: .25s;
                   &.liked {
                       fill: #da5353;
+                      animation: scaling .5s ease 1;
                   }
               }
           }
@@ -287,6 +277,7 @@
           left: 20px;
           object-fit: cover;
           transition: all 0.05s ease;
+          pointer-events: none;
       }
       .tully {
           position: absolute;
@@ -527,6 +518,15 @@
           transform: rotate(360deg);
       }
   }
+
+  @keyframes scaling {
+    from {
+        transform: scale(1.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}
 
   .trans_blur-enter-active,
   .trans_blur-leave-active {
