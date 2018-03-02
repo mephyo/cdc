@@ -104,6 +104,7 @@
           outline: 1px solid @Arcturus;
           &.untouchable {
               pointer-events: none;
+              user-select: none;
           }
       }
       .scrim {
@@ -112,6 +113,7 @@
           bottom: 36px;
           left: 0;
           right: 0;
+          user-select: none;
       }
       .photo_toolbar {
           position: sticky;
@@ -159,15 +161,6 @@
       background-size: 24px 24px;
       background-repeat: no-repeat;
       opacity: 0.875;
-  }
-
-  .icon_back {
-      background-image: url(../assets/images/ic_arrow_forward_white_24px.svg);
-      transform: rotate(180deg);
-  }
-
-  .icon_forward {
-      background-image: url(../assets/images/ic_arrow_forward_white_24px.svg);
   }
 
   .icon_left {
