@@ -28,12 +28,15 @@
                     time: ["afternoon"],
                     cloth: ["nude", "underwear"],
                     clothMore: "",
+                    costume: "",
                     style: "myIdea",
                     styleMore: "",
                     emotion: "excellent",
                     pose: "good",
+                    phyLimit: "4",
                     limit: "3",
                     copyright: "2",
+                    special: "",
                     note: "",
                     contract: false
                 },
@@ -182,6 +185,12 @@
                     model: "clothMore",
                     placeholder: "你有什么特别的服装？"
                 }, {
+                    type: "input",
+                    inputType: "text",
+                    label: "道具",
+                    model: "costume",
+                    placeholder: "蜡烛，纱，丝袜之类的"
+                }, {
                     type: "select",
                     label: "你拍照时的表情",
                     model: "emotion",
@@ -221,7 +230,28 @@
                     ]
                 }, {
                     type: "select",
-                    label: "尺度",
+                    label: "物理尺度",
+                    model: "phyLimit",
+                    values: [{
+                            id: "4",
+                            name: "全裸并露点"
+                        },
+                        {
+                            id: "3",
+                            name: "全裸然而不露点"
+                        },
+                        {
+                            id: "2",
+                            name: "半裸"
+                        },
+                        {
+                            id: "1",
+                            name: "内衣"
+                        }
+                    ]
+                }, {
+                    type: "select",
+                    label: "心理尺度",
                     model: "limit",
                     values: [{
                             id: "4",
@@ -237,7 +267,7 @@
                         },
                         {
                             id: "1",
-                            name: "不穿衣服的性冷淡"
+                            name: "性冷淡"
                         }
                     ]
                 }, {
@@ -265,6 +295,12 @@
                             name: "可以在我的网站和其他平台发布所有照片"
                         }
                     ]
+                }, {
+                    type: "input",
+                    inputType: "text",
+                    label: "特殊要求",
+                    model: "special",
+                    placeholder: "例：我要和我的宠物一起拍照！",
                 }, {
                     type: "input",
                     inputType: "text",
