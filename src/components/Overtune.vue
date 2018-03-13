@@ -2,10 +2,7 @@
     <div class="overtune">
         <transition name="trans_blur">
             <div v-if="!locked">
-                <div class="logo main-logo" :class="{invert: hackMode}" @click="launchHackMode"></div>
-                <h1>Camera del Cavallo
-                    <span v-if="noLimits"> 🔞</span>
-                </h1>
+                <flag :black="hackMode" :nlm="noLimits" @click.native="launchHackMode"/>
                 <ul class="gallery-list">
                     <li v-for="project in gallery" :key="project.codeName">
                         <router-link :to="{ name: 'SingleGallery', params: { galleryId: project.codeName }}">
@@ -23,6 +20,7 @@
 <script>
     import Stark from "@/components/Stark";
     import Alien from "@/components/Alien";
+    import Flag from "@/components/Flag";
     import Wirbelwind from "@/components/Wirbelwind";
 
     export default {
@@ -30,6 +28,7 @@
         components: {
             Stark,
             Alien,
+            Flag,
             Wirbelwind
         },
         data() {
