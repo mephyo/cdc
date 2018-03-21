@@ -1,18 +1,18 @@
 <template>
-    <div class="boncka" lang="zh-CN">
-        <ul class="boncka_list">
-            <spetsnaz v-for="(value, key) in model" :key="key" :q="key" :value="value" :schema="schema" @input="callMe" />
+    <div class="apply_form" lang="zh-CN">
+        <ul>
+            <apply-spetsnaz v-for="(value, key) in model" :key="key" :q="key" :value="value" :schema="schema" @input="callMe" />
         </ul>
         <div class="submit_button" @click="submitData">{{submitLabel}}</div>
     </div>
 </template>
 
 <script>
-    import Spetsnaz from "@/components/Spetsnaz";
+    import ApplySpetsnaz from "@/components/ApplySpetsnaz";
     export default {
-        name: "boncka",
+        name: "ApplyForm",
         components: {
-            Spetsnaz
+            ApplySpetsnaz
         },
         data() {
             return {
@@ -338,3 +338,20 @@
         }
     }
 </script>
+
+<style lang="less">
+    @import "../style/variables.less";
+    .apply_form {
+        background-color: #fafafa;
+        margin: 8px 8px 36px 8px;
+        font-size: 0.875em;
+        border: 1px solid @Arcturus;
+        .submit_button {
+            text-align: center;
+            height: 44px;
+            line-height: 44px;
+            background-color: @Moon;
+            color: @Arcturus;
+        }
+    }
+</style>

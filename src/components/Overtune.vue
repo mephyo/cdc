@@ -1,34 +1,34 @@
 <template>
     <div class="overtune">
-        <transition name="trans_blur">
+        <transition>
             <div v-if="!locked">
-                <flag :black="hackMode" :nlm="noLimits" @click.native="launchHackMode"/>
+                <overtune-flag :black="hackMode" :nlm="noLimits" @click.native="launchHackMode" />
                 <ul class="gallery-list">
                     <li v-for="project in gallery" :key="project.codeName">
-                        <router-link :to="{ name: 'SingleGallery', params: { galleryId: project.codeName }}">
-                            <stark :gallery="project.cover" :name="project.name"></stark>
+                        <router-link :to="{ name: 'PreludeGallery', params: { galleryId: project.codeName }}">
+                            <overtune-stark :gallery="project.cover" :name="project.name"></overtune-stark>
                         </router-link>
                     </li>
                 </ul>
                 <wirbelwind></wirbelwind>
             </div>
-            <alien v-else @unlocked="unlock"></alien>
+            <overtune-guard v-else @unlocked="unlock"></overtune-guard>
         </transition>
     </div>
 </template>
 
 <script>
-    import Stark from "@/components/Stark";
-    import Alien from "@/components/Alien";
-    import Flag from "@/components/Flag";
+    import OvertuneStark from "@/components/OvertuneStark";
+    import OvertuneGuard from "@/components/OvertuneGuard";
+    import OvertuneFlag from "@/components/OvertuneFlag";
     import Wirbelwind from "@/components/Wirbelwind";
 
     export default {
         name: "Overtune",
         components: {
-            Stark,
-            Alien,
-            Flag,
+            OvertuneStark,
+            OvertuneGuard,
+            OvertuneFlag,
             Wirbelwind
         },
         data() {
@@ -126,3 +126,11 @@
         }
     };
 </script>
+
+<style lang="less">
+    .gallery-list {
+        li {
+            margin: 8px;
+        }
+    }
+</style>

@@ -31,10 +31,10 @@
 </script>
 
 <style lang="less">
+    @import "../style/variables.less";
     .flag {
         text-align: center;
         .flag-wrapper {
-            display: block;
             position: relative;
             display: flex;
             justify-content: center;
@@ -47,21 +47,21 @@
                 width: 270px;
                 height: 90px;
                 margin: 5px 0;
-                fill: rgb(225, 220, 215);
+                fill: @Arcturus;
                 z-index: -1;
             }
             .flag-logo {
                 width: 98px;
                 height: 98px;
                 .logo-star {
-                    fill: rgb(55, 50, 45);
+                    fill: @Moon;
                 }
                 .logo-o {
-                    fill: rgb(225, 220, 215);
-                    stroke: rgb(55, 50, 45);
+                    fill: @Arcturus;
+                    stroke: @Moon;
                     stroke-width: 0.5px;
                     &.black {
-                        fill: rgb(15, 10, 5);
+                        fill: #000;
                     }
                 }
             }

@@ -38,7 +38,7 @@
 
 <script>
     export default {
-        name: "Alien",
+        name: "OvertuneGuard",
         data() {
             return {
                 rawKeys: [{
@@ -111,3 +111,45 @@
         }
     }
 </script>
+
+<style lang="less">
+    @import "../style/variables.less";
+    .alien {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        .keyboard {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-wrap: wrap;
+            .key {
+                width: 90px;
+                height: 90px;
+                margin: 5px;
+                background-color: rgba(0, 0, 0, 0.25);
+                transition: 0.125s ease;
+                cursor: pointer;
+                svg {
+                    opacity: 0.5;
+                    transition: inherit;
+                    margin: 33px;
+                    fill: @Europa;
+                }
+                &:active {
+                    background-color: rgba(0, 0, 0, 0.125);
+                    svg {
+                        opacity: 0.25;
+                    }
+                }
+            }
+        }
+    }
+</style>

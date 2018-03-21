@@ -37,7 +37,7 @@
 
 <script>
     export default {
-        name: "Spetsnaz",
+        name: "ApplySpetsnaz",
         props: {
             q: String,
             value: [String, Array, Boolean],
@@ -132,3 +132,138 @@
         }
     }
 </script>
+
+<style lang="less">
+    @import "../style/variables.less";
+    .spetsnaz {
+        color: #333;
+        margin: 8px 0;
+        overflow: hidden;
+        .spetsnaz_head {
+            margin: 8px 8px 0 8px;
+            height: 30px;
+            line-height: 30px;
+            .spetsnaz_label {
+                color: #666;
+            }
+            .spetsnaz_hint {
+                color: #999;
+            }
+        }
+        .spetsnaz_field {
+            margin: 0 8px 8px 8px;
+        }
+        .spetsnaz_inputz {
+            margin: 4px;
+            ::placeholder {
+                color: #999;
+            }
+            .spetsnaz_input {
+                font-size: 1em;
+                outline: none;
+                border: none;
+                border-radius: 0;
+                border-bottom: 1px solid @Neptune;
+                background-color: transparent;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                height: 30px;
+                line-height: 30px;
+                color: @Moon;
+                &:focus {
+                    border-bottom: 1px solid @Moon;
+                }
+            }
+        }
+        .spetsnaz_box {
+            margin: 8px;
+            padding: 0 8px;
+            box-sizing: border-box;
+            border: 1px solid @Neptune;
+            color: #999;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+            &.selected {
+                background-color: @Moon;
+                border-color: @Moon;
+                color: @Arcturus;
+                .icon {
+                    opacity: 1;
+                    filter: invert(100%);
+                }
+            }
+            .icon {
+                opacity: 0.5;
+                height: 24px;
+                width: 24px;
+                margin: 0 4px 0 -4px;
+                flex-shrink: 0;
+            }
+        }
+        .spetsnaz_boxz {
+            display: flex;
+            flex-wrap: wrap;
+            .spetsnaz_box {
+                height: 30px;
+            }
+        }
+        .spetsnaz_boxy {
+            display: flex;
+            flex-direction: column;
+            .spetsnaz_box {
+                height: 36px;
+            }
+        }
+        .spetsnaz_checker {
+            height: 30px;
+            width: 30px;
+            margin: 8px;
+            border: 1px solid @Neptune;
+            box-sizing: border-box;
+            svg {
+                margin: 2px;
+                fill: @Moon;
+            }
+        }
+    }
+
+    .icon_left {
+        background-image: url(../assets/images/ic_keyboard_arrow_left_white_24px.svg);
+    }
+
+    .icon_bed {
+        background-image: url(../assets/images/icon_bed.svg);
+    }
+
+    .icon_bench {
+        background-image: url(../assets/images/icon_bench.svg);
+    }
+
+    .icon_forest {
+        background-image: url(../assets/images/icon_forest.svg);
+    }
+
+    .icon_other {
+        background-image: url(../assets/images/icon_other.svg);
+    }
+
+    .icon_sofa {
+        background-image: url(../assets/images/icon_sofa.svg);
+    }
+
+    .icon_male {
+        background-image: url(../assets/images/icon_male.svg);
+    }
+
+    .icon_female {
+        background-image: url(../assets/images/icon_female.svg);
+    }
+
+    .icon_unknown {
+        background-image: url(../assets/images/icon_unknown.svg);
+    }
+</style>

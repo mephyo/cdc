@@ -37,9 +37,11 @@
                     model: navigator.userAgent,
                     viewTimes: viewTimes,
                     lastLocation: lastLocation,
-                    language: navigator.language,
-                    width: window.innerWidth,
-                    height: window.innerHeight
+                    navigator: {
+                        language: navigator.language,
+                        width: window.innerWidth,
+                        height: window.innerHeight
+                    }
                 }
 
                 setTimeout(() => {

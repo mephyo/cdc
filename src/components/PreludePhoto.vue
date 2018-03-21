@@ -1,11 +1,11 @@
 <template>
-    <li class="single-photo">
+    <li class="prelude-photo">
         <img class="photo" :src="photo.src" :class="{untouchable: !hackMode}">
         <div class="scrim" @dblclick="likeMe" @click="dblTap()" v-if="!hackMode"></div>
         <div class="photo_toolbar">
             <div class="photo_index">{{index + 1 + " / " + total}}</div>
             <div class="photo_like" @click="likeMe">
-                <svg class="like_icon" :class="{liked: isLiked}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                <svg class="like_icon" :class="{liked: isLiked}" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
                 </svg>
             </div>
@@ -15,7 +15,7 @@
 
 <script>
     export default {
-        name: "SinglePhoto",
+        name: "PreludePhoto",
         props: {
             photo: Object,
             index: Number,
@@ -77,3 +77,68 @@
         }
     };
 </script>
+
+<style lang="less">
+    @import "../style/variables.less";
+    .prelude-photo {
+        position: relative;
+        margin: 8px 0;
+        .photo {
+            margin: 0 auto;
+            box-shadow: 0 4px 8px @Centaur;
+            max-width: 100%;
+            display: block;
+            position: relative;
+            outline: 1px solid @Arcturus;
+            &.untouchable {
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+        .scrim {
+            position: absolute;
+            top: 0;
+            bottom: 36px;
+            left: 0;
+            right: 0;
+            user-select: none;
+        }
+        .photo_toolbar {
+            position: sticky;
+            bottom: 1px;
+            height: 36px;
+            margin: 0 60px;
+            z-index: 3;
+            .photo_index {
+                font-size: 1.125em;
+                font-weight: 200;
+                color: @Arcturus;
+                height: 36px;
+                line-height: 36px;
+                width: 60px;
+                text-align: right;
+                position: absolute;
+                right: -60px;
+                bottom: 0;
+            }
+            .photo_like {
+                height: 36px;
+                width: 36px;
+                border-radius: 4px;
+                position: relative;
+                margin: 0 auto;
+                .like_icon {
+                    margin: 6px;
+                    fill: transparent;
+                    stroke: @Arcturus;
+                    stroke-width: 1px;
+                    transition: .25s;
+                    &.liked {
+                        fill: #da5353;
+                        animation: scaling .5s ease 1;
+                    }
+                }
+            }
+        }
+    }
+</style>

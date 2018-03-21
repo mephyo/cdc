@@ -1,523 +1,79 @@
-  @Moon: rgb(55, 50, 45);
-  @Europa: rgb(195, 200, 200);
-  @Arcturus: rgb(225, 220, 215);
-  @Neptune: rgba(195, 200, 200, 0.5);
-  @Centaur: rgba(50, 50, 45, 0.5);
-  @Cygnus: rgba(5, 5, 0, 0.25);
-  @Rivendell: linear-gradient(270deg, #ff7e00, #0080ff);
-  body {
-      margin: 0;
-      padding: 0;
-      background-color: @Moon;
-      font-family: 'Seravek', 'Calibri', -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      font-size: 1em;
-      font-weight: 400;
-      color: @Europa;
-      -webkit-tap-highlight-color: transparent;
-  }
-
-  h1,
-  h2,
-  h3 {
-      font-size: 0.875em;
-      font-weight: 400;
-      color: @Arcturus;
-  }
-
-  p {
-      font-size: 0.875em;
-      font-weight: 400;
-  }
-
-  ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-  }
-
-  a {
-      text-decoration: none;
-      font-size: 0.875em;
-      cursor: pointer;
-  }
-
-  .navigator {
-      position: fixed;
-      width: 100vw;
-      height: 37px;
-      bottom: 0;
-      left: 0;
-      background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.25));
-      .navigator_content_wrapper {
-          height: inherit;
-          width: inherit;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-      }
-  }
-
-  .guider_wrapper {
-      height: 36px;
-      margin-bottom: 1px;
-      display: flex;
-      .icon {
-          margin: 2px 0;
-          width: 22px;
-      }
-      .guider_content {
-          height: 36px;
-          .logo {
-              margin: 6px 0;
-          }
-      }
-  }
-
-  .gallery-list {
-      li {
-          margin: 8px;
-      }
-  }
-
-  .single-gallery {
-      text-align: center;
-      margin: 8px 4px 44px 4px;
-      ul {
-          min-height: 50vh;
-      }
-  }
-
-  .single-photo {
-      position: relative;
-      margin: 8px 0;
-      .photo {
-          margin: 0 auto;
-          box-shadow: 0 4px 8px @Centaur;
-          max-width: 100%;
-          display: block;
-          position: relative;
-          outline: 1px solid @Arcturus;
-          &.untouchable {
-              pointer-events: none;
-              user-select: none;
-          }
-      }
-      .scrim {
-          position: absolute;
-          top: 0;
-          bottom: 36px;
-          left: 0;
-          right: 0;
-          user-select: none;
-      }
-      .photo_toolbar {
-          position: sticky;
-          bottom: 1px;
-          height: 36px;
-          margin: 0 60px;
-          z-index: 3;
-          .photo_index {
-              font-size: 1.125em;
-              font-weight: 200;
-              color: @Arcturus;
-              height: 36px;
-              line-height: 36px;
-              width: 60px;
-              text-align: right;
-              position: absolute;
-              right: -60px;
-              bottom: 0;
-          }
-          .photo_like {
-              height: 36px;
-              width: 36px;
-              border-radius: 4px;
-              position: relative;
-              margin: 0 auto;
-              .like_icon {
-                  margin: 6px;
-                  fill: transparent;
-                  stroke: @Arcturus;
-                  stroke-width: 1px;
-                  transition: .25s;
-                  &.liked {
-                      fill: #da5353;
-                      animation: scaling .5s ease 1;
-                  }
-              }
-          }
-      }
-  }
-
-  .icon {
-      width: 32px;
-      height: 32px;
-      background-position: center center;
-      background-size: 24px 24px;
-      background-repeat: no-repeat;
-      opacity: 0.875;
-  }
-
-  .icon_left {
-      background-image: url(../assets/images/ic_keyboard_arrow_left_white_24px.svg);
-  }
-
-  .icon_bed {
-      background-image: url(../assets/images/icon_bed.svg);
-  }
-
-  .icon_bench {
-      background-image: url(../assets/images/icon_bench.svg);
-  }
-
-  .icon_forest {
-      background-image: url(../assets/images/icon_forest.svg);
-  }
-
-  .icon_other {
-      background-image: url(../assets/images/icon_other.svg);
-  }
-
-  .icon_sofa {
-      background-image: url(../assets/images/icon_sofa.svg);
-  }
-
-  .icon_male {
-      background-image: url(../assets/images/icon_male.svg);
-  }
-
-  .icon_female {
-      background-image: url(../assets/images/icon_female.svg);
-  }
-
-  .icon_unknown {
-      background-image: url(../assets/images/icon_unknown.svg);
-  }
-
-  .logo {
-      background-image: url(../assets/images/logo.svg);
-      width: 22px;
-      height: 24px;
-      background-position: 0 2px;
-      background-size: 21px 21px;
-      background-repeat: no-repeat;
-      opacity: 0.875;
-  }
-
-  .ww_logo {
-      background-image: url(../assets/images/ww_logo.svg);
-      width: 28px;
-      height: 28px;
-      background-position: center center;
-      background-size: 28px 28px;
-      background-repeat: no-repeat;
-      opacity: 0.875;
-  }
-
-  .ww_wrapper {
-      display: flex;
-      margin: 32px 32px 0 32px;
-      padding: 8px 0;
-      align-items: center;
-      justify-content: center;
-      border-top: 1px solid @Cygnus;
-      .ww_text {
-          font-size: 0.875em;
-          color: @Europa;
-          font-style: italic;
-          font-weight: 300;
-          margin: 0 4px;
-          width: 40px;
-          &:first-child {
-              text-align: right;
-          }
-          &:last-child {
-              text-align: left;
-          }
-      }
-  }
-
-  .invert {
-      filter: invert(100%);
-  }
-
-  .king-in-the-north {
-      position: relative;
-      height: 200px;
-      width: 200px;
-      margin: 8px auto;
-      .stark {
-          display: block;
-          outline: 1px solid @Arcturus;
-          box-shadow: 0 4px 8px @Cygnus;
-          height: 160px;
-          width: 160px;
-          position: absolute;
-          top: 20px;
-          left: 20px;
-          object-fit: cover;
-          transition: all 0.05s ease;
-          pointer-events: none;
-      }
-      .tully {
-          position: absolute;
-          height: 40px;
-          line-height: 40px;
-          margin: 80px 0;
-          text-align: center;
-          width: 100%;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          color: @Moon;
-          font-size: 2em;
-          font-style: italic;
-          text-shadow: 0 0 8px @Arcturus;
-      }
-  }
-
-  .apply_wrapper {
-      text-align: center;
-      .apply_button {
-          display: block;
-          text-align: center;
-          margin: 16px auto;
-          height: 30px;
-          line-height: 30px;
-          border-radius: 15px;
-          width: 120px;
-          box-shadow: 0 4px 8px @Cygnus;
-          font-size: 0.875em;
-          font-weight: 500;
-          color: @Europa;
-          background: @Rivendell;
-          background-size: 200% 200%;
-          &.apply_yellow {
-              animation: DaNang 4s ease infinite;
-          }
-          &.apply_blue {
-              animation: DaNang 4s ease infinite;
-          }
-          &.apply_crazy {
-              animation: DaNang 1s ease infinite;
-          }
-      }
-      .apply_content {
-          text-align: center;
-          margin: 16px 4px;
-          background: @Rivendell;
-          background-size: 200% 200%;
-          animation: DaNang 1s ease infinite;
-          overflow: hidden;
-          border-radius: 4px;
-          .apply_content_inner {
-              margin: 1px;
-              padding: 8px;
-              background-color: @Moon;
-              border-radius: 3px;
-              .show_introduction {
-                  font-size: 0.75em;
-                  white-space: nowrap;
-                  height: 30px;
-                  line-height: 30px;
-                  border-radius: 4px;
-                  background-color: @Europa;
-                  color: @Moon;
-              }
-          }
-      }
-  }
-
-  .alien {
-      position: fixed;
-      z-index: 5;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      overflow: hidden;
-      align-items: center;
-      justify-content: center;
-      .keyboard {
-          width: 300px;
-          height: 300px;
-          display: flex;
-          flex-wrap: wrap;
-          .key {
-              width: 90px;
-              height: 90px;
-              margin: 5px;
-              background-color: rgba(0, 0, 0, 0.25);
-              transition: 0.125s ease;
-              cursor: pointer;
-              svg {
-                  opacity: 0.5;
-                  transition: inherit;
-                  margin: 33px;
-                  fill: @Europa;
-              }
-              &:active {
-                  background-color: rgba(0, 0, 0, 0.125);
-                  svg {
-                      opacity: 0.25;
-                  }
-              }
-          }
-      }
-  }
-
-  .boncka {
-      background-color: #fafafa;
-      margin: 8px 8px 36px 8px;
-      font-size: 0.875em;
-      border: 1px solid @Arcturus;
-      .submit_button {
-          text-align: center;
-          height: 44px;
-          line-height: 44px;
+      @import "variables.less";
+      body {
+          margin: 0;
+          padding: 0;
           background-color: @Moon;
+          font-family: 'Seravek', 'Calibri', -apple-system, BlinkMacSystemFont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 1em;
+          font-weight: 400;
+          color: @Europa;
+          -webkit-tap-highlight-color: transparent;
+      }
+
+      h1,
+      h2,
+      h3 {
+          font-size: 0.875em;
+          font-weight: 400;
           color: @Arcturus;
       }
-  }
 
-  .spetsnaz {
-      color: #333;
-      margin: 8px 0;
-      overflow: hidden;
-      .spetsnaz_head {
-          margin: 8px 8px 0 8px;
-          height: 30px;
-          line-height: 30px;
-          .spetsnaz_label {
-              color: #666;
-          }
-          .spetsnaz_hint {
-              color: #999;
-          }
+      p {
+          font-size: 0.875em;
+          font-weight: 400;
       }
-      .spetsnaz_field {
-          margin: 0 8px 8px 8px;
-      }
-      .spetsnaz_inputz {
-          margin: 4px;
-          ::placeholder {
-              color: #999;
-          }
-          .spetsnaz_input {
-              font-size: 1em;
-              outline: none;
-              border: none;
-              border-radius: 0;
-              border-bottom: 1px solid @Neptune;
-              background-color: transparent;
-              display: block;
-              width: 100%;
-              box-sizing: border-box;
-              height: 30px;
-              line-height: 30px;
-              color: @Moon;
-              &:focus {
-                  border-bottom: 1px solid @Moon;
-              }
-          }
-      }
-      .spetsnaz_box {
-          margin: 8px;
-          padding: 0 8px;
-          box-sizing: border-box;
-          border: 1px solid @Neptune;
-          color: #999;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: flex;
-          align-items: center;
-          &.selected {
-              background-color: @Moon;
-              border-color: @Moon;
-              color: @Arcturus;
-              .icon {
-                  opacity: 1;
-                  filter: invert(100%);
-              }
-          }
-          .icon {
-              opacity: 0.5;
-              height: 24px;
-              width: 24px;
-              margin: 0 4px 0 -4px;
-              flex-shrink: 0;
-          }
-      }
-      .spetsnaz_boxz {
-          display: flex;
-          flex-wrap: wrap;
-          .spetsnaz_box {
-              height: 30px;
-          }
-      }
-      .spetsnaz_boxy {
-          display: flex;
-          flex-direction: column;
-          .spetsnaz_box {
-              height: 36px;
-          }
-      }
-      .spetsnaz_checker {
-          height: 30px;
-          width: 30px;
-          margin: 8px;
-          border: 1px solid @Neptune;
-          box-sizing: border-box;
-          svg {
-              margin: 2px;
-              fill: @Moon;
-          }
-      }
-  }
 
-  .rotating {
-      animation: rotating 2s ease infinite;
-  }
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+      }
 
-  @keyframes DaNang {
-      0% {
-          background-position: 0% 50%
+      a {
+          text-decoration: none;
+          font-size: 0.875em;
+          cursor: pointer;
       }
-      50% {
-          background-position: 100% 50%
-      }
-      100% {
-          background-position: 0% 50%
-      }
-  }
 
-  @keyframes rotating {
-      from {
-          transform: rotate(0deg);
+      .icon {
+          width: 32px;
+          height: 32px;
+          background-position: center center;
+          background-size: 24px 24px;
+          background-repeat: no-repeat;
+          opacity: 0.875;
       }
-      to {
-          transform: rotate(360deg);
-      }
-  }
 
-  @keyframes scaling {
-      from {
-          transform: scale(1.5);
+      .rotating {
+          animation: rotating 2s ease infinite;
       }
-      to {
-          transform: scale(1);
+
+      @keyframes DaNang {
+          0% {
+              background-position: 0% 50%
+          }
+          50% {
+              background-position: 100% 50%
+          }
+          100% {
+              background-position: 0% 50%
+          }
       }
-  }
 
-  .trans_blur-enter-active,
-  .trans_blur-leave-active {
-      transition: 0.5s
-  }
+      @keyframes rotating {
+          from {
+              transform: rotate(0deg);
+          }
+          to {
+              transform: rotate(360deg);
+          }
+      }
 
-  .trans_blur-enter,
-  .trans_blur-leave-to {
-      filter: blur(10px);
-      opacity: 0
-  }
+      @keyframes scaling {
+          from {
+              transform: scale(1.5);
+          }
+          to {
+              transform: scale(1);
+          }
+      }

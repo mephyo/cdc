@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Overtune from '@/components/Overtune'
-import SingleGallery from '@/components/SingleGallery'
-import Boncka from '@/components/Boncka'
+import PreludeGallery from '@/components/PreludeGallery'
+import ApplyForm from '@/components/ApplyForm'
 import Copyright from '@/components/Copyright'
 
 Vue.use(Router)
@@ -16,13 +16,13 @@ export default new Router({
         },
         {
             path: '/Apply',
-            name: 'Boncka',
-            component: Boncka
+            name: 'ApplyForm',
+            component: ApplyForm
         },
         {
             path: '/gallery/:galleryId',
-            name: 'SingleGallery',
-            component: SingleGallery
+            name: 'PreludeGallery',
+            component: PreludeGallery
         },
         {
             path: '/copyright',

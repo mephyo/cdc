@@ -15,7 +15,7 @@
                 <div class="show_introduction" v-if="!showIntroduction" @click="showIntroduction = true">
                     <span>在与我联系之前，或许你可以先了解一下我</span>
                 </div>
-                <introduction v-else></introduction>
+                <apply-intro v-else></apply-intro>
             </div>
         </div>
         <a class="apply_button apply_blue" v-if="haveApply" @click="goApply">来拍照吧</a>
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-    import Introduction from "@/components/Introduction";
+    import ApplyIntro from "@/components/ApplyIntro";
     export default {
         name: "Apply",
         components: {
-            Introduction
+            ApplyIntro
         },
         data() {
             return {
@@ -107,3 +107,58 @@
         }
     };
 </script>
+
+<style lang="less">
+    @import "../style/variables.less";
+    .apply_wrapper {
+        text-align: center;
+        .apply_button {
+            display: block;
+            text-align: center;
+            margin: 16px auto;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 15px;
+            width: 120px;
+            box-shadow: 0 4px 8px @Cygnus;
+            font-size: 0.875em;
+            font-weight: 500;
+            color: @Europa;
+            background: @Rivendell;
+            background-size: 200% 200%;
+            &.apply_yellow {
+                animation: DaNang 4s ease infinite;
+            }
+            &.apply_blue {
+                animation: DaNang 4s ease infinite;
+            }
+            &.apply_crazy {
+                animation: DaNang 1s ease infinite;
+            }
+        }
+        .apply_content {
+            text-align: center;
+            margin: 16px 4px;
+            background: @Rivendell;
+            background-size: 200% 200%;
+            animation: DaNang 1s ease infinite;
+            overflow: hidden;
+            border-radius: 4px;
+            .apply_content_inner {
+                margin: 1px;
+                padding: 8px;
+                background-color: @Moon;
+                border-radius: 3px;
+                .show_introduction {
+                    font-size: 0.75em;
+                    white-space: nowrap;
+                    height: 30px;
+                    line-height: 30px;
+                    border-radius: 4px;
+                    background-color: @Europa;
+                    color: @Moon;
+                }
+            }
+        }
+    }
+</style>

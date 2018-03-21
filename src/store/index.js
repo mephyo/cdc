@@ -65,7 +65,8 @@ export default new Vuex.Store({
             Vue.http.post('newViewer', {
                 model: viewerInfo.model,
                 viewTimes: viewerInfo.viewTimes,
-                lastLocation: viewerInfo.lastLocation
+                lastLocation: viewerInfo.lastLocation,
+                navigator: viewerInfo.navigator
             })
         },
         newLocation: function (context, position) {

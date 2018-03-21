@@ -9,7 +9,7 @@
 
 <script>
     export default {
-        name: "Stark",
+        name: "OvertuneStark",
         props: {
             gallery: Array,
             name: String
@@ -68,3 +68,41 @@
         }
     }
 </script>
+
+<style lang="less">
+    @import "../style/variables.less";
+    .king-in-the-north {
+        position: relative;
+        height: 200px;
+        width: 200px;
+        margin: 8px auto;
+        .stark {
+            display: block;
+            outline: 1px solid @Arcturus;
+            box-shadow: 0 4px 8px @Cygnus;
+            height: 160px;
+            width: 160px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            object-fit: cover;
+            transition: all 0.05s ease;
+            pointer-events: none;
+        }
+        .tully {
+            position: absolute;
+            height: 40px;
+            line-height: 40px;
+            margin: 80px 0;
+            text-align: center;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: @Moon;
+            font-size: 2em;
+            font-style: italic;
+            text-shadow: 0 0 8px @Arcturus;
+        }
+    }
+</style>
