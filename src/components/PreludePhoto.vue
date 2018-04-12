@@ -1,6 +1,8 @@
 <template>
     <li class="prelude-photo">
-        <img class="photo" :src="photo.src" :class="{untouchable: !hackMode}">
+        <div class="photo-wrapper">
+            <img class="photo" :src="photo.src" :class="{untouchable: !hackMode}" :alt="'This is the ' + (index + 1) + nTail + ' photo'">
+        </div>
         <div class="scrim" @dblclick="likeMe" @click="dblTap()" v-if="!hackMode"></div>
         <div class="photo_toolbar">
             <div class="photo_index">{{index + 1 + " / " + total}}</div>
@@ -30,6 +32,22 @@
         computed: {
             hackMode() {
                 return this.$store.state.hackMode;
+            },
+            nTail() {
+                switch (this.index + 1) {
+                    case 1:
+                        return "st"
+                        break;
+                    case 2:
+                        return "nd"
+                        break;
+                    case 3:
+                        return "rd"
+                        break;
+                    default:
+                        return "th"
+                        break;
+                }
             }
         },
         methods: {
@@ -83,16 +101,21 @@
     .prelude-photo {
         position: relative;
         margin: 8px 0;
-        .photo {
+        .photo-wrapper {
             margin: 0 auto;
-            box-shadow: 0 4px 8px @Centaur;
-            max-width: 100%;
-            display: block;
-            position: relative;
-            outline: 1px solid @Arcturus;
-            &.untouchable {
-                pointer-events: none;
-                user-select: none;
+            box-sizing: border-box;
+            border: 8px solid @Moon;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25), 0px 0px 8px rgba(0, 0, 0, 0.125);
+            background-color: @Europa;
+            padding: 24px;
+            .photo {
+                max-width: 100%;
+                display: block;
+                position: relative;
+                &.untouchable {
+                    pointer-events: none;
+                    user-select: none;
+                }
             }
         }
         .scrim {
@@ -107,12 +130,12 @@
             position: sticky;
             bottom: 1px;
             height: 36px;
-            margin: 0 60px;
+            margin: 0 72px;
             z-index: 3;
             .photo_index {
                 font-size: 1.125em;
-                font-weight: 200;
-                color: @Arcturus;
+                font-weight: 600;
+                color: @Moon;
                 height: 36px;
                 line-height: 36px;
                 width: 60px;
@@ -130,8 +153,8 @@
                 .like_icon {
                     margin: 6px;
                     fill: transparent;
-                    stroke: @Arcturus;
-                    stroke-width: 1px;
+                    stroke: @Moon;
+                    stroke-width: 2px;
                     transition: .25s;
                     &.liked {
                         fill: #da5353;

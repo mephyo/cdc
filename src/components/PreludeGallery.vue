@@ -33,11 +33,15 @@
 </script>
 
 <style lang="less">
+    @import "../style/variables.less";
     .prelude-gallery {
         text-align: center;
-        margin: 8px 4px 44px 4px;
+        margin: 8px 0 44px 0;
         ul {
             min-height: 50vh;
+            padding: 16px;
+            margin-bottom: 32px;
+            background-color: @Arcturus;
         }
     }
 </style>
