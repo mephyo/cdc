@@ -231,10 +231,6 @@
         }
     }
 
-    .icon_left {
-        background-image: url(../assets/images/ic_keyboard_arrow_left_white_24px.svg);
-    }
-
     .icon_bed {
         background-image: url(../assets/images/icon_bed.svg);
     }

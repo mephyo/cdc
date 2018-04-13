@@ -128,9 +128,9 @@
         }
         .photo_toolbar {
             position: sticky;
-            bottom: 1px;
+            bottom: 0;
             height: 36px;
-            margin: 0 72px;
+            margin: 0 64px;
             z-index: 3;
             .photo_index {
                 font-size: 1.125em;
@@ -152,10 +152,7 @@
                 margin: 0 auto;
                 .like_icon {
                     margin: 6px;
-                    fill: transparent;
-                    stroke: @Moon;
-                    stroke-width: 2px;
-                    transition: .25s;
+                    fill: @Centaur;
                     &.liked {
                         fill: #da5353;
                         animation: scaling .5s ease 1;

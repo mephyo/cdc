@@ -28,10 +28,10 @@
             justify-content: center;
             img {
                 display: block;
-                border: 2px solid @Arcturus;
-                width: 100px;
-                height: 100px;
-                margin: 0 8px;
+                border: 1px solid @Arcturus;
+                width: 80px;
+                height: 80px;
+                margin: 0 1px;
                 object-fit: cover;
                 user-select: none;
             }

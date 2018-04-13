@@ -1,19 +1,17 @@
 <template>
     <div class="overtune">
-        <transition>
-            <div v-if="!locked">
-                <overtune-flag :black="hackMode" :nlm="noLimits" @click.native="launchHackMode" />
-                <ul class="gallery-list">
-                    <li v-for="project in gallery" :key="project.codeName">
-                        <router-link :to="{ name: 'PreludeGallery', params: { galleryId: project.codeName }}">
-                            <overtune-stark :gallery="project.cover" :name="project.name"></overtune-stark>
-                        </router-link>
-                    </li>
-                </ul>
-                <wirbelwind></wirbelwind>
-            </div>
-            <overtune-guard v-else @unlocked="unlock"></overtune-guard>
-        </transition>
+        <div v-if="!locked">
+            <overtune-flag :black="hackMode" :nlm="noLimits" @click.native="launchHackMode" />
+            <ul class="gallery-list">
+                <li v-for="project in gallery" :key="project.codeName">
+                    <router-link :to="{ name: 'PreludeGallery', params: { galleryId: project.codeName }}">
+                        <overtune-stark :gallery="project.cover" :name="project.name"></overtune-stark>
+                    </router-link>
+                </li>
+            </ul>
+            <wirbelwind></wirbelwind>
+        </div>
+        <overtune-guard v-else @unlocked="unlock"></overtune-guard>
     </div>
 </template>
 

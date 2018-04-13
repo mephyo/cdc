@@ -1,7 +1,9 @@
 <template>
     <div class="guider_wrapper">
-        <div class="icon icon_left"></div>
-        <div class="guider_content">
+        <svg class="guider-arrow" viewBox="0 0 20 36">
+            <path d="M5.83,15.17l11-11A4,4,0,0,1,19.66,3H20V33h-.34a4,4,0,0,1-2.83-1.17l-11-11A4,4,0,0,1,5.83,15.17Z" />
+        </svg>
+        <div class="guider-content">
             <slot></slot>
         </div>
     </div>
@@ -14,19 +16,27 @@
 </script>
 
 <style lang="less">
+    @import "../style/variables.less";
     .guider_wrapper {
         height: 36px;
         margin-bottom: 1px;
         display: flex;
-        .icon {
-            margin: 2px 0;
-            width: 22px;
-        }
-        .guider_content {
+        align-items: center;
+        cursor: pointer;
+        .guider-arrow {
             height: 36px;
-            .logo {
-                margin: 6px 0;
-            }
+            width: 20px;
+            fill: @Centaur;
+        }
+        .guider-content {
+            height: 30px;
+            line-height: 30px;
+            background-color: @Centaur;
+            color: @Arcturus;
+            border-radius: 0 4px 4px 0;
+            padding-right: 8px;
+            font-size: 0.875em;
+            font-weight: 600;
         }
     }
 </style>
