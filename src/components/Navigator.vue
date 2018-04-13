@@ -1,7 +1,7 @@
 <template>
     <nav class="navigator" v-if="scenes === 'PreludeGallery'">
         <navigator-guider @click.native="goHome">
-            <span lang="zh-cn">家</span>
+            CC
         </navigator-guider>
     </nav>
 </template>

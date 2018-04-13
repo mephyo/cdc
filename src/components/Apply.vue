@@ -12,10 +12,6 @@
                     <p v-else-if="ourDistance < 200">我们之间的距离很近，我可以来找你拍照。</p>
                     <p v-else>我可以给你拍照，但是你必须来苏州找我。</p>
                 </template>
-                <div class="show_introduction" v-if="!showIntroduction" @click="showIntroduction = true">
-                    <span>在与我联系之前，或许你可以先了解一下我</span>
-                </div>
-                <apply-intro v-else></apply-intro>
             </div>
         </div>
         <a class="apply_button apply_blue" v-if="haveApply" @click="goApply">来拍照吧</a>
@@ -23,15 +19,10 @@
 </template>
 
 <script>
-    import ApplyIntro from "@/components/ApplyIntro";
     export default {
         name: "Apply",
-        components: {
-            ApplyIntro
-        },
         data() {
             return {
-                showIntroduction: false,
                 haveClicked: false,
                 haveApply: false,
                 haveLocation: false,
@@ -55,7 +46,7 @@
                 }
                 if (!navigator.geolocation) {
                     animiIsGreat()
-                    console.warn('您的浏览器不支持地理位置')
+                    console.warn('FATAL ERROR: GPS fail, actually there is no GPS.')
                     return;
                 }
                 const myLocation = {
@@ -94,7 +85,7 @@
 
                 function geoError() {
                     animiIsGreat()
-                    console.warn('无法获取您的位置')
+                    console.warn('FATAL ERROR: GPS fail, we are lost!')
                     return;
                 }
                 navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
@@ -149,15 +140,6 @@
                 padding: 8px;
                 background-color: @Moon;
                 border-radius: 3px;
-                .show_introduction {
-                    font-size: 0.75em;
-                    white-space: nowrap;
-                    height: 30px;
-                    line-height: 30px;
-                    border-radius: 4px;
-                    background-color: @Europa;
-                    color: @Moon;
-                }
             }
         }
     }

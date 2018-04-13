@@ -103,15 +103,14 @@
         margin: 8px 0;
         .photo-wrapper {
             margin: 0 auto;
-            box-sizing: border-box;
-            border: 8px solid @Moon;
+            border-radius: 4px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25), 0px 0px 8px rgba(0, 0, 0, 0.125);
             background-color: @Europa;
-            padding: 24px;
             .photo {
                 max-width: 100%;
                 display: block;
                 position: relative;
+                border-radius: 8px;
                 &.untouchable {
                     pointer-events: none;
                     user-select: none;
