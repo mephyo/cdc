@@ -1,10 +1,8 @@
 <template>
-    <nav class="navigator" v-if="scenes !== 'Overtune'">
-        <div class="navigator_content_wrapper" v-if="scenes === 'PreludeGallery'">
-            <navigator-guider @click.native="goHome">
-                Home
-            </navigator-guider>
-        </div>
+    <nav class="navigator" v-if="scenes === 'PreludeGallery'">
+        <navigator-guider @click.native="goHome">
+            <span lang="zh-cn">家</span>
+        </navigator-guider>
     </nav>
 </template>
 
@@ -47,18 +45,13 @@
     @import "../style/variables.less";
     .navigator {
         position: fixed;
-        width: 100vw;
         height: 36px;
         bottom: 0;
         left: 0;
+        right: 0;
         background-color: @Arcturus;
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.125);
-        .navigator_content_wrapper {
-            height: inherit;
-            width: inherit;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        display: flex;
+        justify-content: space-between;
     }
 </style>

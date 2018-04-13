@@ -19,10 +19,9 @@
     @import "../style/variables.less";
     .guider_wrapper {
         height: 36px;
-        margin-bottom: 1px;
         display: flex;
-        align-items: center;
         cursor: pointer;
+        overflow: hidden;
         .guider-arrow {
             height: 36px;
             width: 20px;
@@ -31,6 +30,7 @@
         .guider-content {
             height: 30px;
             line-height: 30px;
+            margin: 3px 0;
             background-color: @Centaur;
             color: @Arcturus;
             border-radius: 0 4px 4px 0;
