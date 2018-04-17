@@ -1,8 +1,6 @@
 <template>
     <li class="prelude-photo">
-        <div class="photo-wrapper">
-            <img class="photo" :src="photo.src" :class="{untouchable: !hackMode}" :alt="'This is the ' + (index + 1) + nTail + ' photo'">
-        </div>
+        <img class="photo" :src="photo.src" :class="{untouchable: !hackMode}" :alt="'This is the ' + (index + 1) + nTail + ' photo'">
         <div class="scrim" @dblclick="likeMe" @click="dblTap()" v-if="!hackMode"></div>
         <div class="photo_toolbar">
             <div class="photo_index">{{index + 1 + " / " + total}}</div>
@@ -101,20 +99,16 @@
     .prelude-photo {
         position: relative;
         margin: 8px 0;
-        .photo-wrapper {
+        .photo {
             margin: 0 auto;
-            border-radius: 4px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25), 0px 0px 8px rgba(0, 0, 0, 0.125);
             background-color: @Europa;
-            .photo {
-                max-width: 100%;
-                display: block;
-                position: relative;
-                border-radius: 8px;
-                &.untouchable {
-                    pointer-events: none;
-                    user-select: none;
-                }
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+            &.untouchable {
+                pointer-events: none;
+                user-select: none;
             }
         }
         .scrim {
