@@ -1,8 +1,8 @@
 <template>
     <div class="stack-wrapper">
         <div class="stack-photo-group">
-            <img :src="gallery[1]" :alt="'Gallery ' + name + ' cover photo'" v-if="gallery[1]">
             <img :src="gallery[0]" :alt="'Gallery ' + name + ' cover photo'" v-if="gallery[0]">
+            <img :src="gallery[1]" :alt="'Gallery ' + name + ' cover photo'" v-if="gallery[1]">
             <img :src="gallery[2]" :alt="'Gallery ' + name + ' cover photo'" v-if="gallery[2]">
         </div>
         <h3>{{name}}</h3>

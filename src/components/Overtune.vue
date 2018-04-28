@@ -85,7 +85,7 @@
                 const likedPhotos = JSON.parse(localStorage.getItem("likedPhotos"))
                 if (likedPhotos && likedPhotos.length) {
                     let favourites = {
-                        "name": "❤",
+                        "name": "喜欢过的照片",
                         "codeName": "favourites",
                         "cover": [],
                         "private": false,
@@ -119,16 +119,22 @@
         },
         mounted() {
             this.rebelion();
-            this.remix();
-            window.scrollTo(0, 0)
+            window.scrollTo(0, 0);
+            setTimeout(() => {
+                this.remix()
+            }, 500);
         }
     };
 </script>
 
 <style lang="less">
     .gallery-list {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
         li {
             margin: 8px;
+            max-width: 480px;
         }
     }
 </style>

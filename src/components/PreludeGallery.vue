@@ -1,6 +1,12 @@
 <template>
     <div class="prelude-gallery">
         <h1>{{gallery.name}}</h1>
+        <!-- <dl lang="zh-CN" v-if="gallery.codeName==='favourites'">
+            <dt>Q: 这个功能有什么用？</dt>
+            <dd>A: 大多数时候没什么用，然而当你在提交找我拍照信息的时候，可以选择吧喜欢的照片清单一起提交，这样我就知道你喜欢的类型了。</dd>
+            <dt>Q: 如果你的照片我一张都不喜欢呢？</dt>
+            <dd>A: 那你还找我拍个毛照。</dd>
+        </dl> -->
         <ul>
             <prelude-photo v-for="(photo, index) in gallery.photos" :key="photo.codeName" :photo="photo" :index="index" :total="gallery.photos.length"></prelude-photo>
         </ul>

@@ -43,7 +43,6 @@
                         height: window.innerHeight
                     }
                 }
-
                 setTimeout(() => {
                     this.$store.dispatch("newViewer", viewerInfo)
                 }, 2000);
