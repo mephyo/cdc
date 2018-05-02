@@ -1,8 +1,14 @@
 <template>
     <footer class="ww_wrapper" @click="showOff">
-        <div class="ww_text">Wirbel</div>
+        <div class="ww_text">
+            <router-link to="copyright" v-if="showMore">Copyright</router-link>
+            <span v-else>Wirbel</span>
+        </div>
         <div class="ww_logo" :class="{rotating: hobbit}"></div>
-        <div class="ww_text">Wind</div>
+        <div class="ww_text">
+            <router-link to="settings" v-if="showMore">Settings</router-link>
+            <span v-else>Wind</span>
+        </div>
     </footer>
 </template>
 
@@ -11,12 +17,14 @@
         name: "Wirbelwind",
         data() {
             return {
-                hobbit: false
+                hobbit: false,
+                showMore: false
             }
         },
         methods: {
             showOff() {
                 this.hobbit = true
+                this.showMore = this.showMore === false ? true : false
                 setTimeout(() => {
                     this.hobbit = false
                 }, 2000);
@@ -50,12 +58,15 @@
             font-style: italic;
             font-weight: 300;
             margin: 0 4px;
-            width: 40px;
             &:first-child {
                 text-align: right;
             }
             &:last-child {
                 text-align: left;
+            }
+            a {
+                text-decoration: underline;
+                color: @Europa;
             }
         }
     }

@@ -43,6 +43,12 @@
     .prelude-gallery {
         text-align: center;
         margin: 8px 0 44px 0;
+        h1 {
+            font-size: 4em;
+            margin: 16px 0;
+            white-space: nowrap;
+            font-weight: 800;
+        }
         ul {
             min-height: 50vh;
             padding: 16px;

@@ -4,6 +4,7 @@
             <img :src="gallery[0]" :alt="'Gallery ' + name + ' cover photo'" v-if="gallery[0]">
             <img :src="gallery[1]" :alt="'Gallery ' + name + ' cover photo'" v-if="gallery[1]">
             <img :src="gallery[2]" :alt="'Gallery ' + name + ' cover photo'" v-if="gallery[2]">
+            <div class="stack-untouchable"></div>
         </div>
         <h3>{{name}}</h3>
     </div>
@@ -25,6 +26,7 @@
         padding: 16px 0;
         .stack-photo-group {
             display: flex;
+            position: relative;
             margin: 0 auto;
             justify-content: space-between;
             border: 2px solid @Arcturus;
@@ -39,6 +41,13 @@
                 height: 80px;
                 object-fit: cover;
                 user-select: none;
+            }
+            .stack-untouchable {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
             }
         }
         h3 {

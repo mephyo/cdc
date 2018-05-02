@@ -1,7 +1,7 @@
 <template>
-    <nav class="navigator" v-if="scenes === 'PreludeGallery'">
+    <nav class="navigator" v-if="canShow">
         <navigator-guider @click.native="goHome">
-            CC
+            CM;CV
         </navigator-guider>
     </nav>
 </template>
@@ -21,8 +21,19 @@
             noLimits() {
                 return this.$store.state.showPrivate;
             },
-            scenes() {
-                return this.$route.name
+            canShow() {
+                const scenes = this.$route.name
+                switch (scenes) {
+                    case "PreludeGallery":
+                        return true
+                        break;
+                    case "Copyright":
+                        return true
+                        break;
+                    default:
+                        return false
+                        break;
+                }
             }
         },
         methods: {

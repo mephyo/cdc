@@ -4,6 +4,7 @@ import Overtune from '@/components/Overtune'
 import PreludeGallery from '@/components/PreludeGallery'
 import ApplyForm from '@/components/ApplyForm'
 import Copyright from '@/components/Copyright'
+import Settings from '@/components/Settings'
 
 Vue.use(Router)
 
@@ -29,5 +30,10 @@ export default new Router({
             name: 'Copyright',
             component: Copyright
         },
+        {
+            path: '/settings',
+            name: 'Settings',
+            component: Settings
+        }
     ]
 })

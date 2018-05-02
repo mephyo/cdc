@@ -36,7 +36,8 @@
             border-radius: 0 4px 4px 0;
             padding-right: 8px;
             font-size: 0.875em;
-            font-weight: 600;
+            font-weight: 400;
+            font-style: italic;
         }
     }
 </style>

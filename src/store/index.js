@@ -46,11 +46,7 @@ export default new Vuex.Store({
     },
     actions: {
         getGallery: function (context) {
-            let url = "/static/json/gallery.json"
-
-            // if (process.env.NODE_ENV === 'development') {
-            //     url = '/static/json/galerie.json'
-            // }
+            const url = "/static/json/gallery.json"
 
             return new Promise((resolve, reject) => {
                 Vue.http.get(url).then(response => {
@@ -61,11 +57,11 @@ export default new Vuex.Store({
                         g.photos = []
                         for (let index = 0; index < g.coverIds.length; index++) {
                             const coverId = g.coverIds[index];
-                            g.cover.push(prefix + g.codeName + "/" + coverId + ".jpg")
+                            g.cover.push(prefix + g.codeName + "-" + coverId + ".jpg")
                         }
                         for (let index = 1; index <= g.photoIds; index++) {
                             const photo = {
-                                src: prefix + g.codeName + "/" + index + ".jpg",
+                                src: prefix + g.codeName + "-" + index + ".jpg",
                                 codeName: g.codeName + "-" + index
                             }
                             g.photos.push(photo)
