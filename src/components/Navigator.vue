@@ -30,6 +30,9 @@
                     case "Copyright":
                         return true
                         break;
+                    case "Settings":
+                        return true
+                        break;
                     default:
                         return false
                         break;

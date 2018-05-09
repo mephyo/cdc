@@ -117,12 +117,6 @@
             color: @Europa;
             background: @Rivendell;
             background-size: 200% 200%;
-            &.apply_yellow {
-                animation: DaNang 4s ease infinite;
-            }
-            &.apply_blue {
-                animation: DaNang 4s ease infinite;
-            }
             &.apply_crazy {
                 animation: DaNang 1s ease infinite;
             }
