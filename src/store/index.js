@@ -16,7 +16,14 @@ export default new Vuex.Store({
         nowGalleryIndex: 0,
         nowGallery: {},
         nowPhotoIndex: 0,
-        nowPhoto: {}
+        nowPhoto: {},
+        contracts: {
+            1775: {
+                name: "April",
+                copyright: "4",
+                phyLimit: "4"
+            }
+        }
     },
     mutations: {
         getMeOut: function (state) {
@@ -76,6 +83,12 @@ export default new Vuex.Store({
             })
         },
         newViewer: function (context, viewerInfo) {
+
+            // Jump out in DEV ENV
+            if (process.env.NODE_ENV === 'development'){
+                return
+            }
+
             Vue.http.post('newViewer', {
                 model: viewerInfo.model,
                 viewTimes: viewerInfo.viewTimes,

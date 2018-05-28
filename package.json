@@ -1,6 +1,6 @@
 {
     "name": "camera-del-cavallo",
-    "version": "48.2.2",
+    "version": "49.0.1",
     "description": "A photography project",
     "author": "mephyo <hergloves@gmail.com>",
     "private": true,
@@ -13,6 +13,7 @@
         "vue": "^2.5.16",
         "vue-resource": "^1.5.0",
         "vue-router": "^3.0.1",
+        "vue-signature-pad": "^0.1.1",
         "vuex": "^3.0.1"
     },
     "devDependencies": {

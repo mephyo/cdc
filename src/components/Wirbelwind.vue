@@ -1,12 +1,12 @@
 <template>
     <footer class="ww_wrapper" @click="showOff">
         <div class="ww_text">
-            <router-link to="copyright" v-if="showMore">Copyrights</router-link>
+            <router-link to="/copyright" v-if="showMore">Copyrights</router-link>
             <span v-else>Wirbel</span>
         </div>
         <div class="ww_logo" :class="{rotating: hobbit}"></div>
         <div class="ww_text">
-            <router-link to="settings" v-if="showMore">Settings</router-link>
+            <router-link to="/settings" v-if="showMore">Settings</router-link>
             <span v-else>Wind</span>
         </div>
     </footer>

@@ -15,15 +15,17 @@
       h3 {
           font-size: 0.875em;
           font-weight: 400;
-          color: @Arcturus;
       }
 
       p {
           font-size: 0.875em;
           font-weight: 400;
+          margin: 0;
+          line-height: 1.5;
       }
 
-      ul {
+      ul,
+      ol {
           list-style-type: none;
           margin: 0;
           padding: 0;
@@ -33,6 +35,11 @@
           text-decoration: none;
           font-size: 0.875em;
           cursor: pointer;
+      }
+
+      em {
+          font-style: normal;
+          font-weight: 600;
       }
 
       .icon {
@@ -76,4 +83,17 @@
           to {
               transform: scale(1);
           }
+      }
+
+      .slide-enter-active,
+      .slide-leave-active {
+          transition: transform .5s;
+      }
+
+      .slide-enter {
+          transform: translateX(100vw);
+      }
+
+      .slide-leave-to {
+          transform: translateX(-100vw);
       }

@@ -111,7 +111,6 @@
             line-height: 30px;
             border-radius: 15px;
             width: 120px;
-            box-shadow: 0 4px 8px @Cygnus;
             font-size: 0.875em;
             font-weight: 500;
             color: @Europa;
