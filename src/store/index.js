@@ -85,7 +85,7 @@ export default new Vuex.Store({
         newViewer: function (context, viewerInfo) {
 
             // Jump out in DEV ENV
-            if (process.env.NODE_ENV === 'development'){
+            if (process.env.NODE_ENV === 'development') {
                 return
             }
 
@@ -99,6 +99,13 @@ export default new Vuex.Store({
         newLocation: function (context, position) {
             Vue.http.post('newLocation', {
                 position: position
+            })
+        },
+        newContract: function (context, contract) {
+            Vue.http.post('newContract', {
+                passcode: contract.passcode,
+                sign: contract.sign,
+                idNum: contract.idNum
             })
         }
     }
