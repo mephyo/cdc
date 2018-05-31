@@ -52,7 +52,7 @@
                     <p class="contract-sign-line">⼄方签名：</p>
                 </article>
                 <p>请在下方输入身份证号码：</p>
-                <input type="tel" pattern="[0-9]*" class="id-input" v-model="stepDataFour.idNum">
+                <input type="tel" pattern="[0-9]*" class="id-input" v-model="stepDataFour.idNum" placeholder="为了安全起见，并不推荐填写真实的身份证号码">
                 <p>请在下方签名：</p>
                 <VueSignaturePad height="200px" :options="padOptions" saveType="image/svg+xml" ref="signaturePad" />
                 <div class="contract-button" @click="chkStep4">下一步</div>
@@ -74,7 +74,7 @@
                         <span>甲方签名：</span>
                         <img class="sign-img" src="static/images/a-nice-sign.svg" alt="甲方签名">
                     </p>
-                    <p class="contract-sign-line">甲方身份证号码：320503199109272512</p>
+                    <p class="contract-sign-line">甲方身份证号码：******19910927****</p>
                     <p class="contract-sign-line">
                         <span>⼄方签名：</span>
                         <img class="sign-img" :src="stepDataFour.yourSign.data" alt="⼄方签名">
@@ -162,14 +162,6 @@
                 }
             },
             secondChance() {
-                // let answer = window.confirm("请在我也想拍页面重新填写资料并提交，等待至少48小时直到您的合同重新（人工）生成，现在前往填写吗？")
-                // if (answer == true) {
-                //     this.$router.push({
-                //         path: "/apply"
-                //     });
-                // } else {
-                //     this.stepDataTwo.btnLabel = "我还要重新选择"
-                // }
                 alert("目前还不能重新选择。")
             },
             chkStep4() {

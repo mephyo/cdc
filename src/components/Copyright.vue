@@ -1,5 +1,6 @@
 <template>
     <div class="copyright-wrapper">
+        <img src="../assets/images/badge-copyright.svg" alt="badge" class="copyright-badge">
         <h1>Copyright & Licence</h1>
         <p>All Rights Reserved, {{year}} Camera del Cavallo.</p>
         <p></p>
@@ -25,3 +26,19 @@
         }
     }
 </script>
+
+<style lang="less">
+    @import "../style/variables.less";
+    .copyright-wrapper {
+        margin: 0 8px 8px 8px;
+        padding: 16px;
+        color: @Moon;
+        background-color: @Arcturus;
+        position: relative;
+    }
+
+    .copyright-badge {
+        height: 160px;
+        width: 160px;
+    }
+</style>
