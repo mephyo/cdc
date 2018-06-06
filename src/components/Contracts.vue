@@ -92,11 +92,13 @@
 
 <script>
     import ContractsStepper from "@/components/ContractsStepper";
+    import VueSignaturePad from 'vue-signature-pad';
 
     export default {
         name: "Contracts",
         components: {
-            ContractsStepper
+            ContractsStepper,
+            VueSignaturePad
         },
         data() {
             return {

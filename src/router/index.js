@@ -2,10 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Overtune from '@/components/Overtune'
 import PreludeGallery from '@/components/PreludeGallery'
-import ApplyForm from '@/components/ApplyForm'
 import Copyright from '@/components/Copyright'
 import Settings from '@/components/Settings'
-import Contracts from '@/components/Contracts'
+
+const Contracts = () =>
+    import ('@/components/Contracts')
+const ApplyForm = () =>
+    import ('@/components/ApplyForm')
 
 Vue.use(Router)
 
