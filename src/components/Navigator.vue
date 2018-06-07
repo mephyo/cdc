@@ -1,18 +1,23 @@
 <template>
     <nav class="navigator" v-if="canShow">
         <navigator-guider @click.native="goHome">
-            CM;CV
+            <dyn-icon type="arrowL"></dyn-icon>
         </navigator-guider>
+        <div class="navigator-btn" @click="toggleHorizonal">
+            <dyn-icon :type="galleryModeIcon"></dyn-icon>
+        </div>
     </nav>
 </template>
 
 <script>
     import NavigatorGuider from "@/components/NavigatorGuider";
+    import DynIcon from "@/components/DynIcon";
 
     export default {
         name: "Navigator",
         components: {
-            NavigatorGuider
+            NavigatorGuider,
+            DynIcon
         },
         props: {
             gallery: Object
@@ -20,6 +25,16 @@
         computed: {
             noLimits() {
                 return this.$store.state.showPrivate;
+            },
+            galleryHorizonalMode() {
+                return this.$store.state.galleryHorizonalMode;
+            },
+            galleryModeIcon() {
+                if (this.galleryHorizonalMode) {
+                    return "galleryV"
+                } else {
+                    return "galleryH"
+                }
             },
             canShow() {
                 const scenes = this.$route.name
@@ -50,6 +65,9 @@
                         path: "/"
                     });
                 }
+            },
+            toggleHorizonal() {
+                this.$store.commit("toggleHorizonal")
             }
         }
     };
@@ -66,6 +84,18 @@
         background-color: @Arcturus;
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.125);
         display: flex;
-        justify-content: space-between;
+    }
+
+    .navigator-btn {
+        height: 30px;
+        margin: 3px 8px;
+        padding: 3px 8px;
+        box-sizing: border-box;
+        background-color: @Centaur;
+        border-radius: 4px;
+        cursor: pointer;
+        &:active {
+            background-color: @Andromeda;
+        }
     }
 </style>

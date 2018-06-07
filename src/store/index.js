@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
+import {
+    stat
+} from 'fs';
 
 Vue.use(Vuex)
 Vue.use(VueResource)
@@ -17,6 +20,7 @@ export default new Vuex.Store({
         nowGallery: {},
         nowPhotoIndex: 0,
         nowPhoto: {},
+        galleryHorizonalMode: false,
         contracts: {
             1775: {
                 name: "April",
@@ -49,11 +53,17 @@ export default new Vuex.Store({
             const galleryIndex = state.gallery.map(gallery => gallery.codeName).indexOf(galleryId)
             state.nowGalleryIndex = galleryIndex
             state.nowGallery = state.gallery[galleryIndex]
+        },
+        toggleHorizonal: function (state) {
+            state.galleryHorizonalMode = !state.galleryHorizonalMode
         }
     },
     actions: {
         getGallery: function (context) {
-            const url = "/static/json/gallery.json"
+            let url = "/static/json/gallery.json"
+            if (process.env.NODE_ENV === 'development') {
+                url = "/static/json/galerie.json"
+            }
 
             return new Promise((resolve, reject) => {
                 Vue.http.get(url).then(response => {

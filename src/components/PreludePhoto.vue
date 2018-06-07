@@ -98,7 +98,7 @@
     @import "../style/variables.less";
     .prelude-photo {
         position: relative;
-        margin: 8px 0;
+        margin: 8px 16px;
         .photo {
             margin: 0 auto;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25), 0px 0px 8px rgba(0, 0, 0, 0.125);
@@ -123,7 +123,7 @@
             position: sticky;
             bottom: 0;
             height: 36px;
-            margin: 0 64px;
+            margin: 0 128px;
             z-index: 3;
             .photo_index {
                 font-size: 1.125em;
@@ -134,8 +134,9 @@
                 width: 60px;
                 text-align: right;
                 position: absolute;
-                right: -60px;
+                right: -124px;
                 bottom: 0;
+                user-select: none;
             }
             .photo_like {
                 height: 36px;

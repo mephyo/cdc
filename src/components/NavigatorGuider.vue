@@ -4,7 +4,9 @@
             <path d="M5.83,15.17l11-11A4,4,0,0,1,19.66,3H20V33h-.34a4,4,0,0,1-2.83-1.17l-11-11A4,4,0,0,1,5.83,15.17Z" />
         </svg>
         <div class="guider-content">
-            <slot></slot>
+            <div class="guider-content-inner">
+                <slot></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -29,15 +31,22 @@
         }
         .guider-content {
             height: 30px;
-            line-height: 30px;
             margin: 3px 0;
+            padding: 3px 4px 3px 0;
+            box-sizing: border-box;
             background-color: @Centaur;
-            color: @Arcturus;
             border-radius: 0 4px 4px 0;
-            padding-right: 8px;
-            font-size: 0.875em;
-            font-weight: 400;
-            font-style: italic;
+            .guider-content-inner {
+                margin-left: -8px;
+            }
+        }
+        &:active {
+            .guider-arrow {
+                fill: @Andromeda;
+            }
+            .guider-content {
+                background-color: @Andromeda;
+            }
         }
     }
 </style>
