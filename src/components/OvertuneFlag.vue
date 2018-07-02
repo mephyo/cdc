@@ -36,7 +36,8 @@
 <style lang="less">
     @import "../style/variables.less";
     .flag {
-        text-align: center; // .flag-wrapper {
+        text-align: center;
+        // .flag-wrapper {
         //     position: relative;
         //     display: flex;
         //     justify-content: center;
