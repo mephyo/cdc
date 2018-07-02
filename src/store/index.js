@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
-import {
-    stat
-} from 'fs';
 
 Vue.use(Vuex)
 Vue.use(VueResource)

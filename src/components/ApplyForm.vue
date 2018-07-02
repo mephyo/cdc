@@ -325,8 +325,8 @@
                         path: "/"
                     });
                 }, res => {
-                    alert("服务器发生了一个严重错误")
-                    this.submitLabel = "Don't Panic!"
+                    alert("似乎失去连接，我们被日了。")
+                    this.submitLabel = "请再试一次"
                 })
             },
             callMe(q, value) {
