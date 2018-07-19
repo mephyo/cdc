@@ -1,18 +1,12 @@
 <template>
     <main id="app">
         <router-view v-if="galleryLoaded" />
-        <navigator></navigator>
     </main>
 </template>
 
 <script>
-    import Navigator from "@/components/Navigator";
-
     export default {
         name: "app",
-        components: {
-            Navigator
-        },
         data() {
             return {
                 galleryLoaded: false
@@ -24,11 +18,10 @@
                 let lastLocation = localStorage.getItem("lastLocation")
                 if (!viewTimes) {
                     viewTimes = 1
-                    localStorage.setItem("viewTimes", 1)
                 } else {
                     viewTimes++
-                    localStorage.setItem("viewTimes", viewTimes)
                 }
+                localStorage.setItem("viewTimes", viewTimes)
                 if (!lastLocation) {
                     lastLocation = "Not Applied."
                 }
@@ -56,13 +49,9 @@
             }
         },
         mounted() {
+            localStorage.removeItem("likedPhotos")
             this.$store.dispatch("getGallery").then(() => this.indexing())
             this.identifier()
-            if (navigator.language == 'zh-CN') {
-                console.log('%c开发者，如果您要保存图片，请仅用于个人欣赏，谢谢。', 'font-size: 18px;')
-            } else {
-                console.log('%cHacker, do whatever you want but respect the model.', 'font-size: 18px;')
-            }
         },
         watch: {
             $route() {

@@ -10,53 +10,20 @@ Vue.http.options.emulateJSON = true;
 
 export default new Vuex.Store({
     state: {
-        showPrivate: false,
-        hackMode: false,
         gallery: [],
-        nowGalleryIndex: 0,
         nowGallery: {},
-        nowPhotoIndex: 0,
-        nowPhoto: {},
-        galleryHorizonalMode: false,
-        contracts: {
-            1775: {
-                name: "April",
-                copyright: "4",
-                phyLimit: "4"
-            }
-        }
     },
     mutations: {
-        getMeOut: function (state) {
-            state.showPrivate = true
-        },
-        hackModeEnabled: function (state) {
-            state.hackMode = true
-        },
-        setGallery: function (state, gallery) {
+        setGallery(state, gallery) {
             state.gallery = gallery
         },
-        addFavourite: function (state, favourites) {
-            if (state.gallery[0].codeName === "favourites") {
-                state.gallery[0] = favourites
-            } else {
-                state.gallery.unshift(favourites)
-            }
-        },
-        removeFavourite: function (state) {
-            state.gallery.shift()
-        },
-        changeGallery: function (state, galleryId) {
+        changeGallery(state, galleryId) {
             const galleryIndex = state.gallery.map(gallery => gallery.codeName).indexOf(galleryId)
-            state.nowGalleryIndex = galleryIndex
             state.nowGallery = state.gallery[galleryIndex]
         },
-        toggleHorizonal: function (state) {
-            state.galleryHorizonalMode = !state.galleryHorizonalMode
-        }
     },
     actions: {
-        getGallery: function (context) {
+        getGallery(context) {
             let url = "/static/json/gallery.json"
             if (process.env.NODE_ENV === 'development') {
                 url = "/static/json/galerie.json"
@@ -85,11 +52,11 @@ export default new Vuex.Store({
                     context.commit("setGallery", gallery)
                     resolve()
                 }, response => {
-                    console.error("FATAL ERROR: cannot load gallery, it's been totally fucked.")
+                    console.error("FATAL ERROR")
                 });
             })
         },
-        newViewer: function (context, viewerInfo) {
+        newViewer(viewerInfo) {
 
             // Jump out in DEV ENV
             if (process.env.NODE_ENV === 'development') {
@@ -103,16 +70,9 @@ export default new Vuex.Store({
                 navigator: viewerInfo.navigator
             })
         },
-        newLocation: function (context, position) {
+        newLocation(context, position) {
             Vue.http.post('newLocation', {
                 position: position
-            })
-        },
-        newContract: function (context, contract) {
-            Vue.http.post('newContract', {
-                passcode: contract.passcode,
-                sign: contract.sign,
-                idNum: contract.idNum
             })
         }
     }

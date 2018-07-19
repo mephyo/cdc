@@ -1,9 +1,11 @@
 <template>
     <div class="apply_form" lang="zh-CN">
-        <ul>
+        <div class="block-btn" @click="wishYouWereHere">{{locationLabel}}</div>
+        <p>获取坐标并不是必须的，你也可以选择手动填写地址。</p>
+        <ul class="apply-list">
             <apply-spetsnaz v-for="(value, key) in model" :key="key" :q="key" :value="value" :schema="schema" @input="callMe" />
         </ul>
-        <div class="submit_button" @click="submitData">{{submitLabel}}</div>
+        <div class="block-btn" @click="submitData">{{submitLabel}}</div>
     </div>
 </template>
 
@@ -17,11 +19,13 @@
         data() {
             return {
                 submitLabel: "提交",
+                locationLabel: "点击获取坐标",
                 model: {
                     call: "",
                     age: "",
                     gender: "female",
                     contact: "",
+                    location: "",
                     whereToSee: "",
                     place: ["hotel"],
                     placeMore: "",
@@ -78,6 +82,12 @@
                     label: "联系方式",
                     model: "contact",
                     placeholder: "通讯工具 | 用户名"
+                }, {
+                    type: "input",
+                    inputType: "text",
+                    label: "你在哪里",
+                    model: "location",
+                    placeholder: "写城市就好"
                 }, {
                     type: "input",
                     inputType: "text",
@@ -316,6 +326,26 @@
             }
         },
         methods: {
+            wishYouWereHere() {
+                let that = this
+
+                function geoSuccess(position) {
+                    const yourLocation = {
+                        lat: position.coords.latitude,
+                        lon: position.coords.longitude
+                    };
+                    that.locationLabel = "已得到位置"
+                    delete this.model.location
+                    localStorage.setItem("lastLocation", JSON.stringify(yourLocation))
+                    that.$store.dispatch("newLocation", JSON.stringify(yourLocation))
+                }
+
+                function geoError() {
+                    console.warn('FATAL ERROR: GPS fail, we are lost!')
+                    return;
+                }
+                navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+            },
             submitData() {
                 this.submitLabel = "稍等"
                 this.$http.post('newApplier', this.model).then(res => {
@@ -325,7 +355,7 @@
                         path: "/"
                     });
                 }, res => {
-                    alert("似乎失去连接，我们被日了。")
+                    alert("似乎失去连接")
                     this.submitLabel = "请再试一次"
                 })
             },
@@ -343,10 +373,16 @@
     @import "../style/variables.less";
     .apply_form {
         background-color: #fafafa;
-        margin: 8px 8px 36px 8px;
+        margin: 8px;
         font-size: 0.875em;
         border: 1px solid @Arcturus;
-        .submit_button {
+        p {
+            text-align: center;
+        }
+        .apply-list {
+            padding: 16px 0;
+        }
+        .block-btn {
             text-align: center;
             height: 44px;
             line-height: 44px;

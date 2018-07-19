@@ -1,73 +1,38 @@
 <template>
-    <nav class="navigator" v-if="canShow">
-        <navigator-guider @click.native="goHome">
-            <dyn-icon type="arrowL"></dyn-icon>
-        </navigator-guider>
-        <div class="navigator-btn" @click="toggleHorizonal">
-            <dyn-icon :type="galleryModeIcon"></dyn-icon>
+    <nav class="nav">
+        <div class="nav-center">
+            <h1 v-if="title">{{title}}</h1>
+            <dyn-logo v-else></dyn-logo>
+        </div>
+        <div class="nav-guider" v-if="title" @click="goHome">
+            <svg class="guider-arrow" viewBox="0 0 20 36">
+                <path d="M5.83,15.17l11-11A4,4,0,0,1,19.66,3H20V33h-.34a4,4,0,0,1-2.83-1.17l-11-11A4,4,0,0,1,5.83,15.17Z" />
+            </svg>
+            <div class="guider-content">
+                <svg viewBox="0 0 24 24" class="true-arrow">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                </svg>
+            </div>
         </div>
     </nav>
 </template>
 
 <script>
-    import NavigatorGuider from "@/components/NavigatorGuider";
-    import DynIcon from "@/components/DynIcon";
+    import DynLogo from "@/components/DynLogo";
 
     export default {
         name: "Navigator",
         components: {
-            NavigatorGuider,
-            DynIcon
+            DynLogo
         },
         props: {
-            gallery: Object
-        },
-        computed: {
-            noLimits() {
-                return this.$store.state.showPrivate;
-            },
-            galleryHorizonalMode() {
-                return this.$store.state.galleryHorizonalMode;
-            },
-            galleryModeIcon() {
-                if (this.galleryHorizonalMode) {
-                    return "galleryV"
-                } else {
-                    return "galleryH"
-                }
-            },
-            canShow() {
-                const scenes = this.$route.name
-                switch (scenes) {
-                    case "PreludeGallery":
-                        return true
-                        break;
-                    case "Copyright":
-                        return true
-                        break;
-                    case "Settings":
-                        return true
-                        break;
-                    default:
-                        return false
-                        break;
-                }
-            }
+            title: String
         },
         methods: {
             goHome() {
-                if (this.noLimits) {
-                    this.$router.push({
-                        path: "/nlm"
-                    });
-                } else {
-                    this.$router.push({
-                        path: "/"
-                    });
-                }
-            },
-            toggleHorizonal() {
-                this.$store.commit("toggleHorizonal")
+                this.$router.push({
+                    path: "/"
+                });
             }
         }
     };
@@ -75,27 +40,50 @@
 
 <style lang="less">
     @import "../style/variables.less";
-    .navigator {
+    .nav {
         position: fixed;
-        height: 36px;
-        bottom: 0;
+        z-index: 6;
+        height: 40px;
+        top: 0;
         left: 0;
         right: 0;
-        background-color: @Arcturus;
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.125);
-        display: flex;
+        background-color: @WhiteT;
+        .nav-center {
+            .abs;
+            .inner-middle;
+            margin: 0 25vw;
+        }
     }
 
-    .navigator-btn {
-        height: 30px;
-        margin: 3px 8px;
-        padding: 3px 8px;
-        box-sizing: border-box;
-        background-color: @Centaur;
-        border-radius: 4px;
+    .nav-guider {
+        height: 36px;
+        display: flex;
         cursor: pointer;
-        &:active {
-            background-color: @Andromeda;
+        user-select: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: 2px 4px;
+        .guider-arrow {
+            height: 36px;
+            width: 20px;
+            fill: @White0;
+        }
+        .guider-content {
+            height: 30px;
+            margin: 3px 0;
+            padding: 3px 4px 3px 0;
+            box-sizing: border-box;
+            background-color: @White0;
+            border-radius: 0 4px 4px 0;
+            .true-arrow {
+                margin-left: -8px;
+                width: 24px;
+                height: 24px;
+                display: block;
+                fill: @Black0;
+            }
         }
     }
 </style>

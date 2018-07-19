@@ -1,109 +1,33 @@
-      @import "variables.less";
-      body {
-          margin: 0;
-          padding: 0;
-          background-color: @Moon;
-          font-family: 'Seravek', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-          font-size: 1em;
-          font-weight: 400;
-          color: @Europa;
-          -webkit-tap-highlight-color: transparent;
-      }
+@import "variables.less";
+body {
+    margin: 0;
+    padding: 0;
+    background-color: @White0;
+    font-family: 'Seravek', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: @Black0;
+    -webkit-tap-highlight-color: transparent;
+}
 
-      h1,
-      h2,
-      h3 {
-          font-size: 0.875em;
-          font-weight: 400;
-      }
+h1,
+h2,
+h3 {
+    font-size: 0.875em;
+    font-weight: 500;
+    margin: 0;
+}
 
-      p {
-          font-size: 0.875em;
-          font-weight: 400;
-          margin: 0;
-          line-height: 1.5;
-      }
+p {
+    font-size: 0.875em;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.5;
+}
 
-      ul,
-      ol {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-      }
-
-      a {
-          text-decoration: none;
-          font-size: 0.875em;
-          cursor: pointer;
-      }
-
-      em {
-          font-style: normal;
-          font-weight: 600;
-      }
-
-      .icon {
-          width: 32px;
-          height: 32px;
-          background-position: center center;
-          background-size: 24px 24px;
-          background-repeat: no-repeat;
-          opacity: 0.875;
-      }
-
-      .rotating {
-          animation: rotating 2s ease infinite;
-      }
-
-      @keyframes DaNang {
-          0% {
-              background-position: 0% 50%
-          }
-          50% {
-              background-position: 100% 50%
-          }
-          100% {
-              background-position: 0% 50%
-          }
-      }
-
-      @keyframes rotating {
-          from {
-              transform: rotate(0deg);
-          }
-          to {
-              transform: rotate(360deg);
-          }
-      }
-
-      @keyframes scaling {
-          from {
-              transform: scale(1.5);
-          }
-          to {
-              transform: scale(1);
-          }
-      }
-
-      .slide-enter-active,
-      .slide-leave-active {
-          transition: transform .5s;
-      }
-
-      .slide-enter {
-          transform: translateX(100vw);
-      }
-
-      .slide-leave-to {
-          transform: translateX(-100vw);
-      }
-
-      .fade-enter-active,
-      .fade-leave-active {
-          transition: opacity .5s;
-      }
-
-      .fade-enter,
-      .fade-leave-to {
-          opacity: 0;
-      }
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
